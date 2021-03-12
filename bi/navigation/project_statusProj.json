@@ -1,0 +1,10 @@
+{
+    "code": "project_statusProj",
+    "caption": "Список проектов и статусов",
+    "parent": "project",
+    "mine": "pm-company-ru@projects",
+    "report": "statusProj",
+    "namespace": "pm-company-ru",
+    "order": 0
+  }
+  

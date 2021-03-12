@@ -1,0 +1,9 @@
+{
+  "code": "object_cardObject",
+  "caption": "Финансовые показатели текущего года",
+  "parent": "object",
+  "mine": "pm-company-ru@eventsBase",
+  "report": "cardObject",
+  "namespace": "pm-company-ru",
+  "order": 1
+}

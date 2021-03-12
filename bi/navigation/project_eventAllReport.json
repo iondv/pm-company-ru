@@ -1,0 +1,9 @@
+{
+  "code": "project_eventAllReport",
+  "caption": "Мероприятия",
+  "parent": "project",
+  "mine": "pm-company-ru@projects",
+  "report": "eventAllReport",
+  "namespace": "pm-company-ru",
+  "order": 0
+}

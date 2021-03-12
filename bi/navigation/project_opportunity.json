@@ -1,0 +1,9 @@
+{
+  "code": "project_opportunity",
+  "caption": "Управление возможностями",
+  "parent": "project",
+  "mine": "pm-company-ru@projects",
+  "report": "opportunity",
+  "namespace": "pm-company-ru",
+  "order": 7
+}

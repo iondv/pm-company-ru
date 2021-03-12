@@ -1,0 +1,78 @@
+<%
+let state = item.get('state');
+let status = item.get('status');
+let readOnly = state === 'conf' || status === 'approv';
+if ((item.getMetaClass().checkAncestor('indicatorValueBasic@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorValueDigital@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorValueMedia@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorValueFinancial@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorValueText@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorBasic@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorDigital@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorFinancial@pm-company-ru') ||
+    item.getMetaClass().checkAncestor('indicatorMedia@pm-company-ru'))
+  && item.getItemId() && (state === 'app' || status === 'onapprov' || readOnly)) {
+  let comments = resolveTpl('comments', null, true);
+  if (comments) {
+    let prop = item.property('remark');
+    let commId = `${form.ids.attr}_${prop.getName()}_сom`;
+%>
+
+<div class="line-tabs tabs">
+
+  <div id="item-footer-order-toggle" class="order-toggle asc" data-direction="asc"
+       title="Изменить порядок в списке">
+    <span class="glyphicon"></span>
+  </div>
+
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href='#footer-tab-1' data-toggle="tab">
+        <%- prop.getCaption() %>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="footer-tab-1" class="tab-pane active">
+      <div class="comments">
+        <%-partial(comments, {
+          item,
+          id: commId,
+          property: prop,
+          comment: {
+            text: 'descript',
+            user: 'owner',
+            parent: 'answlink',
+            photo: 'owner_ref.foto.link'
+          },
+          count: 100,
+          orderToggleId: '#item-footer-order-toggle',
+          readOnly
+        })%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $('#<%= commId %>').on('comment-added comment-deleted', function () {
+      loadWorkflowState();
+    });
+  });
+  $('#item-footer-order-toggle').click(function () {
+    if ($(this).hasClass('asc')) {
+      $(this).removeClass('asc').addClass('desc').data('direction', 'desc');
+    } else {
+      $(this).removeClass('desc').addClass('asc').data('direction', 'asc')
+    }
+  });
+  $(document.body).on('mouseenter', '.item-comment', function () {
+    $(this).addClass('mouse-enter');
+  });
+  $(document.body).on('mouseleave', '.item-comment', function () {
+    $(this).removeClass('mouse-enter');
+  });
+</script>
+<% }} %>

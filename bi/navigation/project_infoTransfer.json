@@ -1,0 +1,9 @@
+{
+  "code": "project_infoTransfer",
+  "caption": "План коммуникаций",
+  "parent": "project",
+  "mine": "pm-company-ru@projects",
+  "report": "infoTransfer",
+  "namespace": "pm-company-ru",
+  "order": 8
+}

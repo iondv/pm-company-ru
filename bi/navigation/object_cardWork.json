@@ -1,0 +1,9 @@
+{
+  "code": "object_cardWork",
+  "caption": "Выполнение по типам затрат",
+  "parent": "object",
+  "mine": "pm-company-ru@eventsBase",
+  "report": "cardWork",
+  "namespace": "pm-company-ru",
+  "order": 3
+}

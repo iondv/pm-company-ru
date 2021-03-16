@@ -212,16 +212,7 @@
             "validators": null,
             "hint": null,
             "historyDisplayMode": 0,
-            "tags": null,
-            "options": {
-              "template": "file-collection",
-              "map": {
-                "file": "file",
-                "fileName": "name"
-              },
-              "maxSize": 20971520,
-              "share": true
-            }
+            "tags": null
           }
       ],
       "shortFields": []
@@ -353,17 +344,7 @@
                 "validators": null,
                 "hint": "",
                 "historyDisplayMode": 0,
-                "tags": null,
-                "options": {
-                  "template": "comments",
-                  "comments": {
-                    "textProperty": "descript",
-                    "userProperty": "owner",
-                    "parentProperty": "answlink",
-                    "photoProperty": "owner_ref.foto.link",
-                    "dateProperty": "date"
-                  }
-                }
+                "tags": null
             }
         ],
         "shortFields": []

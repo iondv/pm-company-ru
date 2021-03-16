@@ -307,8 +307,7 @@
               "validators": null,
               "hint": null,
               "historyDisplayMode": 0,
-              "tags": null,
-              "options": {}
+              "tags": null
             },
             {
               "caption": "Наименование этапа",
@@ -675,10 +674,7 @@
           "historyDisplayMode": 0,
           "tags": [
             "share"
-          ],
-          "options": {
-            "template": "fileshare-list"
-          }
+          ]
         }
       ],
       "shortFields": []
@@ -708,30 +704,6 @@
           "selectionPaginated": true,
           "validators": null,
           "hint": null,
-          "historyDisplayMode": 0,
-          "tags": null
-        },
-        {
-          "caption": "Поставщик",
-          "type": 5,
-          "property": "provider",
-          "size": 2,
-          "maskName": null,
-          "mask": null,
-          "mode": null,
-          "fields": [],
-          "columns": [],
-          "actions": null,
-          "commands": null,
-          "orderNumber": 20,
-          "required": false,
-          "visibility": "",
-          "enablement": "",
-          "obligation": null,
-          "readonly": false,
-          "selectionPaginated": true,
-          "validators": null,
-          "hint": "",
           "historyDisplayMode": 0,
           "tags": null
         },
@@ -915,17 +887,7 @@
           "validators": null,
           "hint": "",
           "historyDisplayMode": 0,
-          "tags": null,
-          "options": {
-            "template": "comments",
-            "comments": {
-              "textProperty": "descript",
-              "userProperty": "owner",
-              "parentProperty": "answlink",
-              "photoProperty": "owner_ref.foto.link",
-              "dateProperty": "date"
-            }
-          }
+          "tags": null
         }
       ],
       "shortFields": []

@@ -54,31 +54,6 @@
             "tags": null
           },
           {
-            "caption": "Поставщик",
-            "type": 5,
-            "property": "provider",
-            "size": 2,
-            "maskName": null,
-            "mask": null,
-            "mode": 1,
-            "fields": [],
-            "hierarchyAttributes": null,
-            "columns": [],
-            "actions": null,
-            "commands": null,
-            "orderNumber": 30,
-            "required": false,
-            "visibility": null,
-            "enablement": null,
-            "obligation": null,
-            "readonly": false,
-            "selectionPaginated": true,
-            "validators": null,
-            "hint": null,
-            "historyDisplayMode": 0,
-            "tags": null
-          },
-          {
             "caption": "Дата исполнения",
             "type": 120,
             "property": "dateDone",
@@ -127,10 +102,7 @@
             "historyDisplayMode": 0,
             "tags": [
               "share"
-            ],
-            "options": {
-              "template": "fileshare-list"
-            }
+            ]
           }
         ],
         "shortFields": []

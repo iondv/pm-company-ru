@@ -8,8 +8,7 @@
     "url": "https://github.com/iondv/pm-company-ru.git", 
     "type": "git"
   }, 
-  "ionModulesDependencies": {
-    "geomap": "2.0.2", 
+  "ionModulesDependencies": { 
     "rest": "1.0.4", 
     "ionadmin": "3.0.2", 
     "portal": "1.4.1", 
@@ -20,9 +19,7 @@
   "bugs": {
     "url": "https://github.com/iondv/pm-company-ru/issues"
   }, 
-  "ionMetaDependencies": {
-    "viewlib": "0.12.4"
-  }, 
+  "ionMetaDependencies": {}, 
   "version": "0.18.4", 
   "dependencies": {
     "xlsx": "^0.8.0", 

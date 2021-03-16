@@ -202,8 +202,7 @@
                   "options": {
                     "cssClasses": [
                       "top-label"
-                    ], 
-                    "template": "attrs/risk/select_rhomb"
+                    ]
                   }
                 }
               ], 
@@ -260,8 +259,7 @@
                   "options": {
                     "cssClasses": [
                       "top-label"
-                    ], 
-                    "template": "attrs/risk/select_rhomb"
+                    ]
                   }
                 }
               ], 
@@ -945,10 +943,10 @@
               "enableCondition": null, 
               "needSelectedItem": true, 
               "visibilityCondition": null, 
-              "caption": "Удалить", 
+              "caption": "Убрать", 
               "signBefore": false, 
               "isBulk": false, 
-              "id": "DELETE", 
+              "id": "REMOVE", 
               "signAfter": false
             }
           ], 
@@ -1115,17 +1113,7 @@
           "historyDisplayMode": 0, 
           "caption": "Подтверждение", 
           "mode": 3, 
-          "property": "remark", 
-          "options": {
-            "comments": {
-              "photoProperty": "owner_ref.foto.link", 
-              "userProperty": "owner", 
-              "dateProperty": "date", 
-              "parentProperty": "answlink", 
-              "textProperty": "descript"
-            }, 
-            "template": "comments"
-          }
+          "property": "remark"
         }
       ]
     }

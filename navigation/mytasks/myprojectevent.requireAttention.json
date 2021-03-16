@@ -20,44 +20,6 @@
               "property": "$displayMode",
               "operation": 0,
               "value": [
-                "curator"
-              ]
-            },
-            {
-              "property": "state",
-              "operation": 0,
-              "value": [
-                "planningCurator"
-              ]
-            },
-            {
-              "operation": 1,
-              "nestedConditions": [
-                {
-                  "property": "curator.person.user",
-                  "operation": 0,
-                  "value": [
-                    "$$uid"
-                  ]
-                },
-                {
-                  "property": "curator.id",
-                  "operation": 9,
-                  "value": [
-                    "$substitution"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "operation": 0,
-          "nestedConditions": [
-            {
-              "property": "$displayMode",
-              "operation": 0,
-              "value": [
                 "manager"
               ]
             },
@@ -151,21 +113,6 @@
             {
               "operation": 1,
               "nestedConditions": [
-                {
-                  "property": "curator.person.user",
-                  "operation": 0,
-                  "value": [
-                    "$$uid"
-                  ],
-                  "nestedConditions": []
-                },
-                {
-                  "property": "curator.id",
-                  "operation": 9,
-                  "value": [
-                    "$substitution"
-                  ]
-                },
                 {
                   "property": "head.person.user",
                   "operation": 0,

@@ -132,7 +132,6 @@
                     "cardObjectSource": "ion://stdBuilder", 
                     "indicatorAllEvent": "ion://stdBuilder", 
                     "indicatorAll": "ion://stdBuilder", 
-                    "objectBasic": "ion://stdBuilder", 
                     "spendObjectSource": "ion://stdBuilder"
                   }
                 }
@@ -273,19 +272,15 @@
               "lang": "ru", 
               "exporter": "ion://export", 
               "eagerLoading": [
-                "direction.name", 
-                "curator.person.name", 
+                "direction.name",  
                 "head.person.name", 
                 "head.evaluationPerformByEmployee.basicObjPerform", 
-                "owner.person.name", 
-                "administrator.person.name", 
-                "stakeholdersImplementation.name", 
+                "owner.person.name",
                 "risk.descript", 
                 "budget.cost", 
                 "result", 
                 "basicObjs.head.person.name", 
-                "basicObjs.head.evaluationPerformByEmployee.basicObjPerform", 
-                "basicObjs.curator.person.name", 
+                "basicObjs.head.evaluationPerformByEmployee.basicObjPerform",
                 "basicObjs.owner.person.name", 
                 "basicObjs.basicObjs.basicObjs.basicObjs", 
                 "basicObjs.ownOrg.head.person", 
@@ -398,8 +393,6 @@
                     "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
                     "eagerLoading": [
                       "head.organization.name", 
-                      "administrator.organization.name", 
-                      "coordinator.organization.name", 
                       "indicatorBasic.indicatorValueBasic.indicatorBasic", 
                       "indicatorBudget.indicatorValueBasic", 
                       "indicatorBudget.obj", 
@@ -415,7 +408,6 @@
                       "basicObjs.indicatorBasic.measureUnit", 
                       "basicObjs.owner.person", 
                       "basicObjs.head.person", 
-                      "basicObjs.curator.person", 
                       "basicObjs.coexecEvent.person", 
                       "basicObjs.indicatorBasic.owner.person", 
                       "basicObjs.indicatorBasic.head.person", 
@@ -427,26 +419,12 @@
                     "preprocessor": "ion://pmItemToDocx_7", 
                     "isBackground": false, 
                     "type": "item"
-                  }, 
-                  "indicatorsMun": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "eagerLoading": [
-                      "program.aip.indicatorBasic.indicatorValueBasic", 
-                      "program.aip.mo"
-                    ], 
-                    "extension": "docx", 
-                    "caption": "Показатели регионального проекта по муниципальным образованиям ", 
-                    "preprocessor": "ion://pmItemToDocx_Indicators", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }, 
+                  },
                   "schemsProject": {
                     "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
                     "eagerLoading": [
                       "indicatorBasic.owner.person", 
-                      "indicatorBasic.measureUnit.shortName", 
-                      "stakeholdersImplementation.representative.person", 
-                      "stakeholdersImplementation.ownerInteraction.person"
+                      "indicatorBasic.measureUnit.shortName"
                     ], 
                     "extension": "docx", 
                     "caption": "Обоснование проекта", 
@@ -582,14 +560,6 @@
         "skipModules": true, 
         "description": "Проектное управление", 
         "order": 10
-      }, 
-      "gantt-chart": {
-        "description": "План-график(Гант)", 
-        "order": 20
-      }, 
-      "geomap": {
-        "description": "Геоданные", 
-        "order": 50
       }
     }, 
     "explicitTopMenu": [
@@ -605,15 +575,7 @@
       }, 
       {
         "type": "system", 
-        "name": "gantt-chart"
-      }, 
-      {
-        "type": "system", 
         "name": "portal"
-      }, 
-      {
-        "type": "system", 
-        "name": "geomap"
       }, 
       {
         "type": "system", 
@@ -792,18 +754,6 @@
         "options": {}, 
         "module": "core/impl/email/SendMail"
       }, 
-      "wfEvents": {
-        "initLevel": 1, 
-        "options": {
-          "dataRepo": "ion://dataRepo", 
-          "workflows": "ion://workflows", 
-          "AIPConfigPath": "applications/pm-company-ru/paths_config/eventOnlyAIP.json", 
-          "log": "ion://sysLog", 
-          "metaRepo": "ion://metaRepo"
-        }, 
-        "module": "applications/pm-company-ru/lib/wfEvents", 
-        "initMethod": "init"
-      }, 
       "fileStorage": {
         "options": {
           "url": "[[ownCloud.url]]", 
@@ -863,63 +813,7 @@
       "securedDataRepo": {
         "options": {
           "roleMap": {
-            "projDepart@pm-company-ru": {
-              "PROJ_DEPART_EMPLOYEE": {
-                "caption": "Сотрудники в ведомственном проекте", 
-                "resource": {
-                  "caption": "Ведомственные проекты", 
-                  "id": "pm::projDepart"
-                }, 
-                "attribute": "ownOrg"
-              }, 
-              "PROJ_DEPART_MANAGER": {
-                "caption": "Руководитель ведомственного проекта", 
-                "resource": {
-                  "id": "pm::projDepart"
-                }, 
-                "attribute": "head"
-              }, 
-              "PROJ_DEPART_OPERATOR": {
-                "caption": "Оператор ведомственного проекта", 
-                "resource": {
-                  "id": "pm::projDepart"
-                }, 
-                "attribute": "owner"
-              }, 
-              "PROJ_DEPART_VPO": {
-                "caption": "Сотрудники ВПО", 
-                "resource": {
-                  "id": "pm::projDepart"
-                }, 
-                "attribute": "ownOrg.vedomstveniyPO"
-              }
-            }, 
             "project@pm-company-ru": {
-              "PROJECT_ADMIN": {
-                "attribute": "administrator", 
-                "resource": {
-                  "id": "pm::project"
-                }
-              }, 
-              "PROJECT_BENEFITIAR": {
-                "sids": [
-                  "$ownOrg", 
-                  "$stakeholdersImplementation.organization", 
-                  "$participantsOccupation"
-                ], 
-                "resource": {
-                  "id": "pm::project"
-                }
-              }, 
-              "PROJECT_VPO": {
-                "caption": "Сотрудники ВПО", 
-                "sids": [
-                  "$ownOrg.vedomstveniyPO"
-                ], 
-                "resource": {
-                  "id": "pm::project"
-                }
-              }, 
               "PROJECT_MANAGER": {
                 "attribute": "head", 
                 "resource": {
@@ -931,13 +825,6 @@
                   "$owner"
                 ], 
                 "resource": {
-                  "id": "pm::project"
-                }
-              }, 
-              "PROJECT_CURATOR": {
-                "attribute": "curator", 
-                "resource": {
-                  "caption": "Проект", 
                   "id": "pm::project"
                 }
               }
@@ -972,24 +859,12 @@
                 "attribute": "ownerValue"
               }
             }, 
-            "program@pm-company-ru": {
-              "PROGRAM_COORD": {
-                "sids": [
-                  "$coordinator", 
-                  "Operators"
-                ], 
-                "resource": {
-                  "id": "pm::program"
-                }
-              }
-            }, 
-            "eventBasic@pm-company-ru": {
+            "event@pm-company-ru": {
               "EVENT_RESPONSIBLE": {
                 "caption": "Полный доступ к мероприятию (исполнители, соисполнители, руководитель и куратор мероприятия)", 
                 "sids": [
                   "$coexecEvent", 
                   "$owner", 
-                  "$curator", 
                   "$head"
                 ], 
                 "resource": {
@@ -1003,28 +878,11 @@
                 }, 
                 "attribute": "ownOrg"
               }, 
-              "PROJECT_ADMIN": {
-                "caption": "Администратор проекта", 
-                "resource": {
-                  "id": "pm::project-events"
-                }, 
-                "attribute": "project.administrator"
-              }, 
               "PROJECT_BENEFITIAR": {
                 "caption": "Интересант проекта", 
                 "sids": [
                   "$project.ownOrg", 
-                  "$project.stakeholdersImplementation.organization", 
                   "$project.participantsOccupation.participant"
-                ], 
-                "resource": {
-                  "id": "pm::project-events"
-                }
-              }, 
-              "PROJECT_VPO": {
-                "caption": "Сотрудники ВПО", 
-                "sids": [
-                  "$project.ownOrg.vedomstveniyPO"
                 ], 
                 "resource": {
                   "id": "pm::project-events"
@@ -1045,14 +903,6 @@
                 "resource": {
                   "id": "pm::project-events"
                 }
-              }, 
-              "PROJECT_CURATOR": {
-                "caption": "Куратор проекта.", 
-                "resource": {
-                  "caption": "Задачи проекта", 
-                  "id": "pm::project-events"
-                }, 
-                "attribute": "project.curator"
               }
             }, 
             "indicatorValueBasic@pm-company-ru": {
@@ -1116,9 +966,7 @@
                   "type": "project-change", 
                   "messageData": "item", 
                   "recievers": [
-                    "item.curator.person.user", 
-                    "item.head.person.user", 
-                    "item.administrator.person.user"
+                    "item.head.person.user"
                   ]
                 }, 
                 "meeting@pm-company-ru.participants.put": {
@@ -1225,170 +1073,7 @@
     }
   }, 
   "modules": {
-    "geomap": {
-      "import": {
-        "src": "applications/pm-company-ru/geo", 
-        "namespace": "pm-company-ru"
-      }, 
-      "globals": {
-        "templates": [
-          "applications/pm-company-ru/templates"
-        ], 
-        "statics": {
-          "geoicons": "applications/pm-company-ru/icons", 
-          "common-static": "applications/pm-company-ru/templates/static"
-        }, 
-        "defaultNav": {
-          "node": "objectBasic", 
-          "namespace": "pm-company-ru"
-        }, 
-        "di": {
-          "dataRepo": {
-            "options": {
-              "log": "ion://sysLog", 
-              "imageStorage": "ion://imageStorage", 
-              "maxEagerDepth": 3, 
-              "fileStorage": "ion://fileStorage", 
-              "keyProvider": {
-                "name": "keyProvider", 
-                "module": "core/impl/meta/keyProvider", 
-                "options": {
-                  "metaRepo": "ion://metaRepo"
-                }
-              }, 
-              "dataSource": "ion://Db", 
-              "metaRepository": "ion://metaRepo"
-            }, 
-            "module": "core/impl/datarepository/ionDataRepository"
-          }
-        }, 
-        "hidePageHead": false, 
-        "search": {
-          "enabled": true, 
-          "timeout": 2000, 
-          "panel": {
-            "orderNumber": 10, 
-            "name": "filterFloat"
-          }
-        }, 
-        "zoom": 3, 
-        "regions": {
-          "activeLevels": {
-            "6": {
-              "strokeStyle": "solid", 
-              "strokeWidth": 2, 
-              "strokeOpacity": 0.8, 
-              "fillColor": "#ffffff", 
-              "strokeColor": "#a183cd", 
-              "fillOpacity": 0
-            }
-          }, 
-          "button": {
-            "caption": "Районы", 
-            "resetHint": "Сбросить фильтр", 
-            "hint": "Фильтр по районам"
-          }, 
-          "enabled": true, 
-          "levels": {
-            "2": {
-              "strokeStyle": "solid", 
-              "strokeWidth": 3, 
-              "strokeOpacity": 1, 
-              "fillColor": "#ffffff", 
-              "strokeColor": "#7e8dab", 
-              "fillOpacity": 0
-            }, 
-            "6": {
-              "strokeStyle": "solid", 
-              "strokeWidth": 1, 
-              "strokeOpacity": 1, 
-              "fillColor": "#ffffff", 
-              "strokeColor": "#6e93c6", 
-              "fillOpacity": 0
-            }
-          }, 
-          "osmIds": [
-            "144764"
-          ], 
-          "panel": {
-            "name": "filterFloat"
-          }
-        }, 
-        "start": [
-          83.76, 
-          47.0
-        ], 
-        "stroke": {
-          "path": {
-            "opacity": 0.8, 
-            "strokeColor": "#00ff00", 
-            "strokeWidth": 6
-          }, 
-          "polygon": {
-            "strokeColor": "#00ff00", 
-            "strokeWidth": 3, 
-            "fillColor": "#00ff00", 
-            "strokeOpacity": 0.9, 
-            "fillOpacity": 0.1
-          }, 
-          "panel": {
-            "name": "filterFloat"
-          }
-        }, 
-        "ymapControls": {
-          "loader": {
-            "position": {
-              "top": 90, 
-              "left": 15
-            }
-          }, 
-          "zoomControl": {
-            "position": {
-              "top": 10, 
-              "right": 10
-            }
-          }, 
-          "typeSelector": {
-            "float": "right"
-          }, 
-          "rulerControl": null
-        }, 
-        "namespaces": {
-          "pm-company-ru": "Геоданные проекта"
-        }, 
-        "hidePageSidebar": true, 
-        "logo": "common-static/logo.png", 
-        "formFilter": {
-          "panel": {
-            "name": "filterFloat"
-          }
-        }, 
-        "panels": {
-          "rightInfo": {
-            "type": "rightInfo"
-          }, 
-          "filterFloat": {
-            "cssStyle": "left:10px; bottom:10px; width: 310px; max-height:calc(100% - 163px);", 
-            "cssClass": "map-filter-float collapsible", 
-            "type": "float", 
-            "title": "Фильтры"
-          }, 
-          "navFloat": {
-            "cssStyle": "left:10px; top:46px; width: 310px; max-height:calc(100% - 163px);", 
-            "cssClass": "map-nav-float nav-tree", 
-            "type": "float"
-          }
-        }
-      }
-    }, 
-    "rest": {
-      "globals": {
-        "authMode": {
-          "accept": "pwd"
-        }, 
-        "di": {}
-      }
-    }, 
+    "geomap": {}, 
     "ionadmin": {
       "logo": "common-static/logo.png", 
       "statics": {
@@ -1555,10 +1240,6 @@
                 "indicatorBudget.obj", 
                 "indicatorBudget.indicatorValueBasic", 
                 "indicatorBudget.budgetType", 
-                "stakeholdersImplementation", 
-                "stakeholdersImplementation.organization", 
-                "stakeholdersImplementation.representative", 
-                "stakeholdersImplementation.representative.person", 
                 "participantsOccupation", 
                 "participantsOccupation.participant", 
                 "participantsOccupation.participant.person", 
@@ -1576,19 +1257,15 @@
                 "problematic"
               ], 
               "exportItem": [
-                "direction.name", 
-                "curator.person.name", 
+                "direction.name",
                 "head.person.name", 
                 "head.evaluationPerformByEmployee.basicObjPerform", 
-                "owner.person.name", 
-                "administrator.person.name", 
-                "stakeholdersImplementation.name", 
+                "owner.person.name",
                 "risk.descript", 
                 "budget.cost", 
                 "result", 
                 "basicObjs.head.person.name", 
                 "basicObjs.head.evaluationPerformByEmployee.basicObjPerform", 
-                "basicObjs.curator.person.name", 
                 "basicObjs.owner.person.name", 
                 "basicObjs.basicObjs.basicObjs.basicObjs", 
                 "basicObjs.ownOrg.head.person", 
@@ -1609,13 +1286,9 @@
                 "evaluation", 
                 "evaluationPerform.ownOrg.name", 
                 "evaluationPerform.basicObjs.name", 
-                "curator.head.person", 
                 "head.head.person", 
-                "administrator.head.person", 
-                "coordinator.head.person", 
                 "basicObjs.owner.head.person", 
                 "basicObjs.head.head.person", 
-                "basicObjs.curator.head.person", 
                 "problemReg.owner.head.person", 
                 "problemReg", 
                 "problemReg.problemFed", 
@@ -1623,20 +1296,7 @@
                 "participantsOccupation", 
                 "participantsOccupation.participant", 
                 "participantsOccupation.participant.person", 
-                "participantsOccupation.participant.head.person", 
-                "stakeholdersImplementation", 
-                "stakeholdersImplementation.organization", 
-                "stakeholdersImplementation.representative", 
-                "stakeholdersImplementation.representative.person", 
-                "stakeholdersImplementation.ownerInteraction", 
-                "stakeholdersImplementation.ownerInteraction.person", 
-                "knowledgeBase", 
-                "knowledgeBase.glossary"
-              ]
-            }, 
-            "eventOnly@pm-company-ru": {
-              "item": [
-                "instructions.responsible"
+                "participantsOccupation.participant.head.person"
               ]
             }, 
             "indicatorBasic@pm-company-ru": {
@@ -1651,28 +1311,10 @@
                 "newEdition"
               ]
             }, 
-            "objectBasic@pm-company-ru": {
-              "item": [
-                "indicatorBasic.measureUnit"
-              ]
-            }, 
             "question@pm-company-ru": {
               "item": [
                 "assignment", 
                 "assignment.responsible.person"
-              ]
-            }, 
-            "proposal@pm-company-ru": {
-              "exportItem": [
-                "initiator", 
-                "initiator.person", 
-                "purposes.name", 
-                "event", 
-                "eventBlock.name", 
-                "risk", 
-                "risk.name", 
-                "propBudgt", 
-                "propBudgt.budgetType"
               ]
             }, 
             "reportProject@pm-company-ru": {
@@ -1722,29 +1364,9 @@
                 "instructions.responsible"
               ]
             }, 
-            "projDepart@pm-company-ru": {
-              "item": []
-            }, 
-            "governmentPower@pm-company-ru": {
-              "item": [
-                "subordinate.head.person", 
-                "branch.head.person"
-              ], 
-              "list": [
-                "head.person"
-              ]
-            }, 
             "risk@pm-company-ru": {
               "list": [
                 "owner.person"
-              ]
-            }, 
-            "eventObjectBasic@pm-company-ru": {
-              "item": [
-                "instructions.responsible", 
-                "objectBasic", 
-                "head", 
-                "ownOrg"
               ]
             }, 
             "occupationInTheProject@pm-company-ru": {
@@ -1760,38 +1382,12 @@
                 "indicatorBasic.measureUnit"
               ]
             }, 
-            "eventObject@pm-company-ru": {
-              "item": [
-                "instructions.responsible", 
-                "objectBasic", 
-                "head", 
-                "ownOrg"
-              ]
-            }, 
-            "knowledgeBase@pm-company-ru": {
-              "list": [
-                "basicObj"
-              ]
-            }, 
             "evaluationPerform@pm-company-ru": {
               "exportList": [
                 "ownOrg.name", 
                 "basicObjPerform.name", 
                 "basicObjs.name", 
-                "basicObjPerform.curator.person.name", 
                 "basicObjPerform.head.person.name"
-              ]
-            }, 
-            "briefcase@pm-company-ru": {
-              "item": [
-                "projects.vidProject.name"
-              ], 
-              "list": [
-                "projects.vidProject.name"
-              ], 
-              "exportItem": [
-                "projects", 
-                "programs"
               ]
             }, 
             "indicatorValueBasic@pm-company-ru": {
@@ -1805,8 +1401,7 @@
               "list": [
                 "indicatorBasic.ownerValue", 
                 "indicatorBasic.measureUnit", 
-                "indicatorBasic.measureType", 
-                "indicatorBasic.objectBasic"
+                "indicatorBasic.measureType"
               ]
             }, 
             "changeReq@pm-company-ru": {
@@ -1837,35 +1432,11 @@
                 "changeInfoTransferCol.newEdition.toInfo.person", 
                 "changePrimaryCol"
               ]
-            }, 
-            "eventBasic@pm-company-ru": {
-              "item": [
-                "objectBasic", 
-                "basicObj", 
-                "basicObj.stakeholdersImplementation", 
-                "basicObj.stakeholdersImplementation.organization", 
-                "indicatorBasic.measureUnit", 
-                "risk.typeRisk"
-              ], 
-              "list": [
-                "curator.person", 
-                "head.person", 
-                "administrator.person", 
-                "owner.person", 
-                "coexecEvent.person", 
-                "ownerOrg", 
-                "instructions.responsible"
-              ]
-            }, 
+            },
             "branchOrg@pm-company-ru": {
               "list": [
                 "employee.person", 
                 "head.person"
-              ]
-            }, 
-            "eventBlock@pm-company-ru": {
-              "item": [
-                "instructions.responsible"
               ]
             }
           }
@@ -1879,68 +1450,6 @@
                 "types": {
                   "item": "task/view", 
                   "create": "task/view", 
-                  "selectClass": "task/selectClass"
-                }
-              }
-            ]
-          }, 
-          {
-            "node": "*", 
-            "classes": [
-              {
-                "name": "project@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "eventControl@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "eventRisk@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "eventObject@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "eventObjectBasic@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "event@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "briefcase@pm-company-ru", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "selectClass": "task/selectClass"
-                }
-              }, 
-              {
-                "name": "*", 
-                "types": {
-                  "item": "to-gantt-view", 
-                  "create": "to-gantt-view", 
                   "selectClass": "task/selectClass"
                 }
               }
@@ -1963,19 +1472,12 @@
                   "handler": "ion://createIndicatorValueHandler"
                 }, 
                 {
-                  "code": "ASSIGNMENT_TO_EVENT_ONLY", 
-                  "handler": "ion://assignmentToevent"
-                }, 
-                {
                   "code": "CREATE_PROJECT_REPORTS", 
                   "handler": "ion://createProjectReportsHandler"
                 }
               ]
             }
-          }, 
-          "assignmentToevent": {
-            "module": "applications/pm-company-ru/lib/actions/assignmentToevent"
-          }, 
+          },
           "export": {
             "options": {
               "configs": {
@@ -2011,26 +1513,6 @@
                     "preprocessor": "ion://pmItemToDocx_2", 
                     "isBackground": false, 
                     "type": "item"
-                  }
-                }, 
-                "proposal@pm-company-ru": {
-                  "passProj": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Паспорт проектного предложения.${item.code}", 
-                    "caption": "Паспорт проектного предложения", 
-                    "preprocessor": "ion://pmItemToDocx_7", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }, 
-                  "reestr": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Реестр проектных предложений.${list.code}", 
-                    "caption": "Реестр проектных предложений", 
-                    "preprocessor": "ion://pmFromListToDocx", 
-                    "isBackground": false, 
-                    "type": "list"
                   }
                 }, 
                 "project@pm-company-ru": {
@@ -2078,8 +1560,6 @@
                     "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
                     "eagerLoading": [
                       "head.organization.name", 
-                      "administrator.organization.name", 
-                      "coordinator.organization.name", 
                       "indicatorBasic.indicatorValueBasic.indicatorBasic", 
                       "indicatorBudget.indicatorValueBasic", 
                       "indicatorBudget.obj", 
@@ -2094,8 +1574,7 @@
                       "basicObjs.indicatorBasic.indicatorValueBasic", 
                       "basicObjs.indicatorBasic.measureUnit", 
                       "basicObjs.owner.person", 
-                      "basicObjs.head.person", 
-                      "basicObjs.curator.person", 
+                      "basicObjs.head.person",
                       "basicObjs.coexecEvent.person", 
                       "basicObjs.indicatorBasic.owner.person", 
                       "basicObjs.indicatorBasic.head.person", 
@@ -2108,27 +1587,12 @@
                     "preprocessor": "ion://pmItemToDocx_7", 
                     "isBackground": false, 
                     "type": "item"
-                  }, 
-                  "indicatorsMun": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "eagerLoading": [
-                      "program.aip.indicatorBasic.indicatorValueBasic", 
-                      "program.aip.mo"
-                    ], 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Показатели регионального проекта по муниципальным образованиям .${item.code}", 
-                    "caption": "Показатели регионального проекта по муниципальным образованиям ", 
-                    "preprocessor": "ion://pmItemToDocx_Indicators", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }, 
+                  },
                   "schemsProject": {
                     "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
                     "eagerLoading": [
                       "indicatorBasic.owner.person", 
-                      "indicatorBasic.measureUnit.shortName", 
-                      "stakeholdersImplementation.representative.person", 
-                      "stakeholdersImplementation.ownerInteraction.person"
+                      "indicatorBasic.measureUnit.shortName"
                     ], 
                     "extension": "docx", 
                     "fileNameTemplate": "Обоснование проекта.${item.code}", 
@@ -2279,96 +1743,7 @@
                     }, 
                     "type": "list"
                   }
-                }, 
-                "briefcase@pm-company-ru": {
-                  "pmItemToExcel": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
-                    "extension": "xlsx", 
-                    "fileNameTemplate": "Балансировка портфеля.${item.name}", 
-                    "caption": "Балансировка портфеля", 
-                    "preprocessor": "ion://pmItemToExcel", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }
-                }, 
-                "program@pm-company-ru": {
-                  "foundation": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "eagerLoading": [
-                      "indicator", 
-                      "indicator.owner", 
-                      "indicator.owner.person", 
-                      "project", 
-                      "project.purposes", 
-                      "project.purposes.purposeIndicator"
-                    ], 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Обоснование программы.${item.name}", 
-                    "caption": "Обоснование программы", 
-                    "preprocessor": "ion://pmItemToDocx_2", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }, 
-                  "programProgress": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "eagerLoading": [
-                      "indicator.indicatorValueBasic", 
-                      "indicator.remark.owner", 
-                      "project.indicatorBudget.indicatorValueBasic", 
-                      "eventOnly.remark.owner"
-                    ], 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Отчет о ходе реализации программы.${item.name}", 
-                    "caption": "Итоговый отчет", 
-                    "params": {
-                      "periodYYYY": {
-                        "caption": "Год", 
-                        "type": "string"
-                      }
-                    }, 
-                    "preprocessor": "ion://pmItemToDocx_Progress", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }, 
-                  "passport": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "eagerLoading": [
-                      "project.problemReg.indicatorBasic.indicatorValueBasic", 
-                      "project.indicatorBudget.indicatorValueBasic", 
-                      "project.curator.person", 
-                      "project.head.person", 
-                      "curator.person", 
-                      "head.person", 
-                      "head.organization", 
-                      "administrator.person", 
-                      "administrator.organization", 
-                      "coordinator.organization", 
-                      "purposes.purposeIndicator.indicator.indicatorValueBasic", 
-                      "purposes.purposes.purposeIndicator.indicator.indicatorValueBasic", 
-                      "purposes.purposes.purposes.purposeIndicator.indicator.indicatorValueBasic", 
-                      "purposes.purposes.purposes.purposes.purposeIndicator.indicator.indicatorValueBasic", 
-                      "purposes.purposes.purposes.purposes.purposes.purposeIndicator.indicator.indicatorValueBasic", 
-                      "project.problemReg", 
-                      "project.problemReg.problemFed", 
-                      "project.problemReg.results"
-                    ], 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Паспорт программы.${item.name}", 
-                    "caption": "Паспорт программы", 
-                    "preprocessor": "ion://pmItemToDocx", 
-                    "isBackground": true, 
-                    "type": "item"
-                  }, 
-                  "projectProgramm": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "extension": "docx", 
-                    "fileNameTemplate": "План мероприятий программы.${item.name}", 
-                    "caption": "План мероприятий программы", 
-                    "preprocessor": "ion://pmItemToDocx_3", 
-                    "isBackground": false, 
-                    "type": "item"
-                  }
-                }, 
+                },
                 "assignmentBasic@pm-company-ru": {
                   "orders": {
                     "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
@@ -2386,24 +1761,6 @@
                     "preprocessor": "ion://pmListToDocx", 
                     "isBackground": false, 
                     "type": "list"
-                  }
-                }, 
-                "programGos@pm-company-ru": {
-                  "consistProg": {
-                    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
-                    "eagerLoading": [
-                      "indicator.name", 
-                      "project.name", 
-                      "program.name", 
-                      "purposes.name", 
-                      "eventOnly.name"
-                    ], 
-                    "extension": "docx", 
-                    "fileNameTemplate": "Состав государственной программы.${item.name}", 
-                    "caption": "Состав государственной программы", 
-                    "preprocessor": "ion://pmItemToDocx", 
-                    "isBackground": false, 
-                    "type": "item"
                   }
                 }, 
                 "changeReq@pm-company-ru": {
@@ -2525,8 +1882,7 @@
               "fileStorage": "ion://fileStorage", 
               "module": "ion://module", 
               "cloudUrl": "[[ownCloud.url]]"
-            }, 
-            "module": "applications/viewlib/lib/controllers/api/file-collection", 
+            },
             "initMethod": "init"
           }, 
           "pmItemToDocx": {
@@ -2563,197 +1919,12 @@
               "fileStorage": "ion://fileStorage", 
               "module": "ion://module"
             }, 
-            "module": "applications/viewlib/lib/controllers/api/fileshare", 
             "initMethod": "init"
           }, 
           "collectionsCreator": {
             "initLevel": 2, 
             "options": {
-              "map": {
-                "eventBasic@pm-company-ru:result": {
-                  "eventObject@pm-company-ru": {
-                    "resultEvent": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "resultEvent@pm-company-ru.work"
-                          ], 
-                          "values": {
-                            "resultPlan": "$plan", 
-                            "status": "work", 
-                            "dateCreate": {
-                              "now": []
-                            }, 
-                            "resultFact": "$fact"
-                          }
-                        }
-                      ], 
-                      "elementClass": "resultEvent@pm-company-ru"
-                    }
-                  }, 
-                  "event@pm-company-ru": {
-                    "resultEvent": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "resultEvent@pm-company-ru.work"
-                          ], 
-                          "values": {
-                            "resultPlan": "$plan", 
-                            "status": "work", 
-                            "dateCreate": {
-                              "now": []
-                            }, 
-                            "resultFact": "$fact"
-                          }
-                        }
-                      ], 
-                      "elementClass": "resultEvent@pm-company-ru"
-                    }
-                  }, 
-                  "eventOnly@pm-company-ru": {
-                    "resultEvent": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "resultEvent@pm-company-ru.work"
-                          ], 
-                          "values": {
-                            "resultPlan": "$plan", 
-                            "status": "work", 
-                            "dateCreate": {
-                              "now": []
-                            }, 
-                            "resultFact": "$fact"
-                          }
-                        }
-                      ], 
-                      "elementClass": "resultEvent@pm-company-ru"
-                    }
-                  }, 
-                  "eventObjectBasic@pm-company-ru": {
-                    "resultEvent": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "resultEvent@pm-company-ru.work"
-                          ], 
-                          "values": {
-                            "resultPlan": "$plan", 
-                            "status": "work", 
-                            "dateCreate": {
-                              "now": []
-                            }, 
-                            "resultFact": "$fact"
-                          }
-                        }
-                      ], 
-                      "elementClass": "resultEvent@pm-company-ru"
-                    }
-                  }, 
-                  "eventControl@pm-company-ru": {
-                    "resultEvent": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "resultEvent@pm-company-ru.work"
-                          ], 
-                          "values": {
-                            "resultPlan": "$plan", 
-                            "status": "work", 
-                            "dateCreate": {
-                              "now": []
-                            }, 
-                            "resultFact": "$fact"
-                          }
-                        }
-                      ], 
-                      "elementClass": "resultEvent@pm-company-ru"
-                    }
-                  }, 
-                  "eventBlock@pm-company-ru": {
-                    "resultEvent": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "resultEvent@pm-company-ru.work"
-                          ], 
-                          "values": {
-                            "resultPlan": "$plan", 
-                            "status": "work", 
-                            "dateCreate": {
-                              "now": []
-                            }, 
-                            "resultFact": "$fact"
-                          }
-                        }
-                      ], 
-                      "elementClass": "resultEvent@pm-company-ru"
-                    }
-                  }
-                }, 
-                "eventBasic@pm-company-ru:mapAIP": {
-                  "eventObject@pm-company-ru": {
-                    "indicatorBasic": {
-                      "patterns": [
-                        {
-                          "push": [
-                            "indicatorBasic@pm-company-ru.onapp"
-                          ], 
-                          "values": {
-                            "dateStart": "$datePlannedStart", 
-                            "about": "Фото-видео фиксация", 
-                            "name": {
-                              "concat": [
-                                "Фото-видео фиксация", 
-                                " (", 
-                                "$code", 
-                                ") ", 
-                                {
-                                  "if": [
-                                    {
-                                      "gt": [
-                                        {
-                                          "size": [
-                                            "$name"
-                                          ]
-                                        }, 
-                                        30
-                                      ]
-                                    }, 
-                                    {
-                                      "concat": [
-                                        {
-                                          "substr": [
-                                            "$name", 
-                                            0, 
-                                            30
-                                          ]
-                                        }, 
-                                        "..."
-                                      ]
-                                    }, 
-                                    "$name"
-                                  ]
-                                }
-                              ]
-                            }, 
-                            "confirm": "$ownOrg", 
-                            "periodType": "week", 
-                            "head": "$head", 
-                            "objectBasic": "$objectBasic", 
-                            "headValue": "$head", 
-                            "dateEnd": "$datePlannedEnd", 
-                            "ownerValue": "$head", 
-                            "owner": "$head"
-                          }
-                        }
-                      ], 
-                      "elementClass": "indicatorMedia@pm-company-ru"
-                    }
-                  }
-                }
-              }, 
+              "map": {}, 
               "changelogFactory": "ion://changelogFactory", 
               "log": "ion://sysLog", 
               "workflows": "ion://workflows", 
@@ -2862,13 +2033,6 @@
           "eventControl@pm-company-ru.files": {
             "file": "/${item.code}/pm_${attr}/"
           }, 
-          "event@pm-company-ru": {
-            "resultCloudFile": "/${item.basicObj.code}/${item.code}/", 
-            "cloudFile": "/${item.basicObj.code}/${item.code}/"
-          }, 
-          "eventObject@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
           "project@pm-company-ru": {
             "resultCloudFile": "/${item.code}/", 
             "cloudFile": "/${item.code}/"
@@ -2876,27 +2040,7 @@
           "person@pm-company-ru": {
             "foto": "/${class}/pm_${attr}/${dddd}/"
           }, 
-          "program@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
-          "eventOnly@pm-company-ru": {
-            "resultCloudFile": "/${item.basicObj.code}/${item.code}/", 
-            "cloudFile": "/${item.basicObj.code}/${item.code}/"
-          }, 
-          "programGos@pm-company-ru.files": {
-            "file": "/${item.name}/pm_${attr}/"
-          }, 
-          "eventRisk@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
           "event@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
-          "objectBasic@pm-company-ru": {
-            "cloudFile": "/${item.name} (${item.objectBasicSource.name})/", 
-            "imageObj": "/${item.name} (${item.objectBasicSource.name})/"
-          }, 
-          "eventBlock@pm-company-ru.files": {
             "file": "/${item.code}/pm_${attr}/"
           }, 
           "result@pm-company-ru": {
@@ -2918,46 +2062,20 @@
           "organization@pm-company-ru": {
             "schems": "/${class}/pm_${attr}/${dddd}/"
           }, 
-          "briefcase@pm-company-ru.files": {
-            "file": "/${item.name}/pm_${attr}/"
-          }, 
           "indicatorValueDigital@pm-company-ru": {
             "cloudFile": "/${class}/${item.indicatorBasic.name} (${item.cloudDate})/"
           }, 
-          "proposal@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
           "basicObj@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
-          "eventOnly@pm-company-ru.files": {
             "file": "/${item.code}/pm_${attr}/"
           }, 
           "contract@pm-company-ru": {
             "cloudFile": "/${class}/pm_${attr}/${dddd}/"
           }, 
-          "eventRisk@pm-company-ru": {
-            "resultCloudFile": "/${item.basicObj.code}/${item.code}/", 
-            "cloudFile": "/${item.basicObj.code}/${item.code}/"
-          }, 
-          "projDepart@pm-company-ru": {
-            "cloudFile": "/${item.code}/"
-          }, 
-          "governmentPower@pm-company-ru": {
-            "schems": "/${class}/pm_${attr}/${dddd}/"
-          }, 
           "task@pm-company-ru": {
             "cloudFile": "/${class}/pm_${attr}/${dddd}/"
           }, 
-          "eventBasic@pm-company-ru.files": {
-            "file": "/${item.code}/pm_${attr}/"
-          }, 
           "contract@pm-company-ru.files": {
             "file": "/${item.name}/pm_${attr}/"
-          }, 
-          "eventObjectBasic@pm-company-ru": {
-            "resultCloudFile": "/${class}/pm_${attr}/${dddd}/", 
-            "cloudFile": "/${item.basicObj.code}/${item.code}/"
           }, 
           "eventControl@pm-company-ru": {
             "resultCloudFile": "/${item.basicObj.code}/${item.code}/", 
@@ -2979,37 +2097,18 @@
           "reportProject@pm-company-ru.files": {
             "file": "/${item.project.code}/${class}/${s}/"
           }, 
-          "knowledgeBase@pm-company-ru.files": {
-            "file": "/${item.basicObj.code}/${class}/${s}/"
-          }, 
           "indicatorValueMedia@pm-company-ru": {
             "valueMedia": "/${class}/${item.indicatorBasic.name} (${item.cloudDate})/"
           }, 
-          "eventBasic@pm-company-ru": {
+          "event@pm-company-ru": {
             "resultCloudFile": "/${class}/pm_${attr}/${dddd}/", 
             "cloudFile": "/${class}/pm_${attr}/${dddd}/"
           }, 
           "branchOrg@pm-company-ru": {
             "schems": "/${class}/pm_${attr}/${dddd}/"
-          }, 
-          "eventBlock@pm-company-ru": {
-            "resultCloudFile": "/${item.basicObj.code}/${item.code}/", 
-            "cloudFile": "/${item.basicObj.code}/${item.code}/"
           }
         }, 
         "listSearchOptions": {
-          "objectBasic@pm-company-ru": {
-            "*": {
-              "splitBy": "\\s+", 
-              "joinBy": "and", 
-              "searchBy": [
-                "name"
-              ], 
-              "mode": [
-                "starts"
-              ]
-            }
-          }, 
           "measureUnit@pm-company-ru": {
             "*": {
               "minLength": 1, 
@@ -3121,66 +2220,6 @@
         }, 
         "config": {
           "map": {
-            "eventObject@pm-company-ru": {
-              "blocks": [
-                "blocks"
-              ], 
-              "planEnd": "dateEnd", 
-              "color": "#41bed0b9", 
-              "planStart": "dateStart", 
-              "percentProgress": true, 
-              "readonly": {
-                "progress": {
-                  "or": [
-                    {
-                      "nempty": [
-                        "$basicObjs"
-                      ]
-                    }, 
-                    {
-                      "ne": [
-                        "$state", 
-                        "work"
-                      ]
-                    }
-                  ]
-                }
-              }, 
-              "parents": [
-                "program", 
-                "basicObj"
-              ], 
-              "sortBy": "num", 
-              "url": "registry/pm-company-ru@myprojectevent.myevent/view/:class/:id", 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "blocked": [
-                "blocked"
-              ]
-            }, 
-            "projDepart@pm-company-ru": {
-              "planEnd": "dateEnd", 
-              "color": "#e3fcef", 
-              "text": "name", 
-              "filter": {
-                "ne": [
-                  "$archive", 
-                  true
-                ]
-              }, 
-              "percentProgress": true, 
-              "planStart": "dateStart", 
-              "parents": [
-                "basicObj"
-              ], 
-              "url": "registry/pm-company-ru@myProjectDepart/view/:class/:id", 
-              "override": {
-                "owner": "head"
-              }, 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "type": "project"
-            }, 
             "project@pm-company-ru": {
               "planEnd": "dateEnd", 
               "color": "#e3fcef", 
@@ -3252,109 +2291,6 @@
                 "blocked"
               ]
             }, 
-            "briefcase@pm-company-ru": {
-              "color": "#deebff", 
-              "open": true, 
-              "url": "registry/pm-company-ru@myBriefcase/view/:class/:id", 
-              "text": "name", 
-              "textColor": "#000", 
-              "type": "project"
-            }, 
-            "program@pm-company-ru": {
-              "end": "datePlannedEnd", 
-              "planEnd": "dateEnd", 
-              "color": "#deebff", 
-              "text": "name", 
-              "start": "datePlannedStart", 
-              "planStart": "dateStart", 
-              "url": "registry/pm-company-ru@myprogram/view/:class/:id", 
-              "type": "project", 
-              "percentProgress": true, 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "open": true
-            }, 
-            "event@pm-company-ru": {
-              "splitClass": "event@pm-company-ru", 
-              "blocks": [
-                "blocks"
-              ], 
-              "planEnd": "dateEnd", 
-              "color": "#41bed0bf", 
-              "planStart": "dateStart", 
-              "percentProgress": true, 
-              "readonly": {
-                "progress": {
-                  "or": [
-                    {
-                      "nempty": [
-                        "$basicObjs"
-                      ]
-                    }, 
-                    {
-                      "ne": [
-                        "$state", 
-                        "work"
-                      ]
-                    }
-                  ]
-                }
-              }, 
-              "sortBy": "num", 
-              "url": "registry/pm-company-ru@myprojectevent.myevent/view/:class/:id", 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "blocked": [
-                "blocked"
-              ]
-            }, 
-            "programGos@pm-company-ru": {
-              "color": "#deebff", 
-              "open": true, 
-              "url": "registry/pm-company-ru@myProgramGos/view/:class/:id", 
-              "text": "name", 
-              "textColor": "#000", 
-              "type": "project"
-            }, 
-            "employee@pm-company-ru": {
-              "eager": [
-                "person", 
-                "organization"
-              ]
-            }, 
-            "eventOnly@pm-company-ru": {
-              "blocks": [
-                "blocks"
-              ], 
-              "planEnd": "dateEnd", 
-              "color": "#41bed0bf", 
-              "planStart": "dateStart", 
-              "percentProgress": true, 
-              "readonly": {
-                "progress": {
-                  "or": [
-                    {
-                      "nempty": [
-                        "$basicObjs"
-                      ]
-                    }, 
-                    {
-                      "ne": [
-                        "$state", 
-                        "work"
-                      ]
-                    }
-                  ]
-                }
-              }, 
-              "sortBy": "num", 
-              "url": "registry/pm-company-ru@myprojectevent.myevent/view/:class/:id", 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "blocked": [
-                "blocked"
-              ]
-            }, 
             "eventControl@pm-company-ru": {
               "blocks": [
                 "blocks"
@@ -3385,39 +2321,6 @@
               "progress": "progress", 
               "type": "milestone"
             }, 
-            "eventObjectBasic@pm-company-ru": {
-              "blocks": [
-                "blocks"
-              ], 
-              "planEnd": "dateEnd", 
-              "color": "#41bed0b9", 
-              "planStart": "dateStart", 
-              "percentProgress": true, 
-              "readonly": {
-                "progress": {
-                  "or": [
-                    {
-                      "nempty": [
-                        "$basicObjs"
-                      ]
-                    }, 
-                    {
-                      "ne": [
-                        "$state", 
-                        "work"
-                      ]
-                    }
-                  ]
-                }
-              }, 
-              "sortBy": "num", 
-              "url": "registry/pm-company-ru@myprojectevent.myevent/view/:class/:id", 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "blocked": [
-                "blocked"
-              ]
-            }, 
             "basicObj@pm-company-ru": {
               "duration": "duration", 
               "start": "datePlannedStart", 
@@ -3427,7 +2330,7 @@
                 "basicObj"
               ]
             }, 
-            "eventBasic@pm-company-ru": {
+            "event@pm-company-ru": {
               "blocks": [
                 "blocks"
               ], 
@@ -3435,39 +2338,6 @@
               "color": "#41bed0bf", 
               "percentProgress": true, 
               "planStart": "dateStart", 
-              "sortBy": "num", 
-              "url": "registry/pm-company-ru@myprojectevent.myevent/view/:class/:id", 
-              "progress": "progress", 
-              "textColor": "#000", 
-              "blocked": [
-                "blocked"
-              ]
-            }, 
-            "eventBlock@pm-company-ru": {
-              "blocks": [
-                "blocks"
-              ], 
-              "planEnd": "dateEnd", 
-              "color": "#41bed0bf", 
-              "planStart": "dateStart", 
-              "percentProgress": true, 
-              "readonly": {
-                "progress": {
-                  "or": [
-                    {
-                      "nempty": [
-                        "$basicObjs"
-                      ]
-                    }, 
-                    {
-                      "ne": [
-                        "$state", 
-                        "work"
-                      ]
-                    }
-                  ]
-                }
-              }, 
               "sortBy": "num", 
               "url": "registry/pm-company-ru@myprojectevent.myevent/view/:class/:id", 
               "progress": "progress", 
@@ -3478,34 +2348,18 @@
             }
           }, 
           "createUrl": {
-            "eventObject@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/basicObjs/eventOnly@pm-company-ru", 
-            "event@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/basicObjs/event@pm-company-ru", 
-            "project@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/program/project@pm-company-ru", 
-            "eventOnly@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/basicObjs/eventOnly@pm-company-ru", 
-            "eventObjectBasic@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/basicObjs/eventOnly@pm-company-ru", 
-            "eventBlock@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/basicObjs/event@pm-company-ru"
+            "event@pm-company-ru": "registry/pm-company-ru@myprojectevent.all/new/{{parentClass}}.{{parentId}}/basicObjs/event@pm-company-ru"
           }, 
           "inplaceCreation": {
             "skip": [
-              "program@pm-company-ru", 
-              "programGos@pm-company-ru", 
               "project@pm-company-ru"
             ], 
             "rootLevel": true, 
-            "force": {
-              "eventObject@pm-company-ru": "eventOnlyAIP@pm-company-ru", 
-              "eventOnly@pm-company-ru": "eventOnly@pm-company-ru", 
-              "eventOnlyAIP@pm-company-ru": "eventOnlyAIP@pm-company-ru", 
-              "@root": "program@pm-company-ru", 
-              "eventObjectBasic@pm-company-ru": "eventOnly@pm-company-ru"
-            }, 
+            "force": {}, 
             "ambigiousDefault": "event@pm-company-ru"
           }, 
-          "roots": [
-            "briefcase@pm-company-ru", 
-            "program@pm-company-ru", 
-            "project@pm-company-ru", 
-            "programGos@pm-company-ru"
+          "roots": [ 
+            "project@pm-company-ru"
           ], 
           "preConfigurations": {
             "config1": {
@@ -3696,8 +2550,7 @@
             "eventsBase": {
               "cardObjectSource": "mineBuilder", 
               "indicatorAllEvent": "mineBuilder", 
-              "indicatorAll": "mineBuilder", 
-              "objectBasic": "mineBuilder", 
+              "indicatorAll": "mineBuilder",  
               "spendObjectSource": "mineBuilder"
             }
           }
@@ -3711,9 +2564,6 @@
     "dashboard": {
       "globals": {
         "layouts": {
-          "indicator": {
-            "title": "Показатели"
-          }, 
           "tasks": {
             "title": "Мои задачи"
           }

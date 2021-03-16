@@ -220,40 +220,6 @@
       "cached": true
     },
     {
-      "orderNumber": 60,
-      "name": "objectBasic",
-      "caption": "Объект показателя",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": true,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": {
-        "concat": [
-          "$indicatorBasic.objectBasic.name"
-        ]
-      },
-      "cached": true
-    },
-    {
       "orderNumber": 100,
       "name": "dateStart",
       "caption": "Дата начала планового периода",

@@ -262,10 +262,7 @@
           "historyDisplayMode": 0,
           "tags": [
             "share"
-          ],
-          "options": {
-            "template": "fileshare"
-          }
+          ]
         },
         {
           "caption": "Архив",
@@ -459,10 +456,7 @@
           "historyDisplayMode": 0,
           "tags": [
             "share"
-          ],
-          "options": {
-            "template": "fileshare"
-          }
+          ]
         }
       ],
       "shortFields": []
@@ -594,17 +588,7 @@
           "validators": null,
           "hint": "",
           "historyDisplayMode": 0,
-          "tags": null,
-          "options": {
-            "template": "comments",
-            "comments": {
-              "textProperty": "descript",
-              "userProperty": "owner",
-              "parentProperty": "answlink",
-              "photoProperty": "owner_ref.foto.link",
-              "dateProperty": "date"
-            }
-          }
+          "tags": null
         }
       ],
       "shortFields": []

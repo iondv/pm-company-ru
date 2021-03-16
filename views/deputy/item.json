@@ -126,9 +126,6 @@
             "hint": "",
             "historyDisplayMode": 0,
             "tags": null,
-            "options": {
-              "maxSize": 52428800
-            },
             "selConditions": [],
             "selSorting": []
           },

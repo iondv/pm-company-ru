@@ -210,50 +210,6 @@
       "indexSearch": false,
       "eagerLoading": false,
       "formula": null
-    },
-    {
-      "orderNumber": 30,
-      "name": "evalType",
-      "caption": "Тип оценки",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": true,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": "100",
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": {
-        "type": "SIMPLE",
-        "list": [
-          {
-            "key": "curator",
-            "value": "Предлагаемая куратором проекта"
-          },
-          {
-            "key": "expert",
-            "value": "Экспертная оценка МЭР"
-          }
-        ],
-        "matrix": [],
-        "parameters": [],
-        "hq": ""
-      },
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
     }
   ],
   "metaVersion": "2.0.61"

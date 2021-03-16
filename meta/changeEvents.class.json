@@ -64,9 +64,7 @@
       "itemsClass": "",
       "allowedSubclasses": [
         "event",
-        "event",
-        "eventControl",
-        "eventObject"
+        "eventControl"
       ],
       "backRef": "",
       "backColl": "",
@@ -108,9 +106,7 @@
       "itemsClass": "",
       "allowedSubclasses": [
         "event",
-        "event",
-        "eventControl",
-        "eventObject"
+        "eventControl"
       ],
       "backRef": "",
       "backColl": "",

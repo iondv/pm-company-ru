@@ -192,46 +192,6 @@
       "formula": null
     },
     {
-      "orderNumber": 33,
-      "name": "vedomstveniyPO",
-      "caption": "Ведомственный проектный офис",
-      "type": 14,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "employee",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [
-        [
-          {
-            "property": "organization.id",
-            "operation": 0,
-            "value": [
-              "$id"
-            ],
-            "nestedConditions": []
-          }
-        ]
-      ],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
       "orderNumber": 29,
       "name": "address",
       "caption": "Адрес",

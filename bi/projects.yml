@@ -39,14 +39,6 @@ sources:
                 - $result.fact
           - field: descrOperProj
             expr: $descrOper
-          - field: curatorId
-            expr: $curator.id
-              # concat:
-              #   - $curator.person.surname
-              #   - ' '
-              #   - $curator.person.name
-              #   - ' '
-              #   - $curator.person.patronymic
           - field: headId
             expr: $head.id
               # concat:
@@ -55,14 +47,6 @@ sources:
               #   - $head.person.name
               #   - ' '
               #   - $head.person.patronymic
-          - field: administratorId
-            expr: $administrator.id
-              # concat:
-              #   - $administrator.person.surname
-              #   - ' '
-              #   - $administrator.person.name
-              #   - ' '
-              #   - $administrator.person.patronymic
           - field: ownerId
             expr: $owner.id
               # concat:
@@ -73,40 +57,6 @@ sources:
               #   - $owner.person.patronymic
           # - field: position
           #   expr: $employee.position
-      - className: projDepart
-        filter:
-          ne:
-            - $archive
-            - true
-        results:
-          - field: archive
-            expr: $archive
-          - field: projectCode
-            expr: $project_code
-          - field: guidProj
-            expr: $guid
-          - field: nameProj
-            expr:
-              concat:
-                - $name
-                - ' - '
-                - $project_code
-          - field: descriptProj
-            expr: $descript
-          - field: planProj
-            expr:
-              ifNull:
-                - $plan
-                - '-'
-          - field: factProj
-            expr:
-              ifNull:
-                - $fact
-                - $result.fact
-          - field: descrOperProj
-            expr: ''
-    index:
-      - guidProj
   - name: riskProject
     # Выгружаем из класса risk
     caption: >-
@@ -259,128 +209,6 @@ sources:
             expr: $answ
     index:
       - guid
-  - name: programProject
-    caption: >-
-      Данные о программах и их проектах
-    load:
-      - className: program
-        filter:
-          and:
-            - ne:
-              - $archive
-              - true
-            - ne:
-              - $project.guid
-              - null
-        results:
-          - field: guid
-            expr: $guid
-          - field: name
-            expr:
-              concat:
-                - $name
-                - ' - '
-                - $code
-          - field: guidProj
-            expr: $project.guid
-          - field: nameProj
-            expr: $project.name
-    index:
-      - guid
-  - name: briefcaseProgramProject
-    caption: >-
-        Данные о портфеле и их проектах в программах
-    index:
-      - guid
-    load:
-      - className: briefcase
-        filter:
-          - and:
-            - ne:
-              - $archive
-              - true
-            - ne:
-              - $programs.guid
-              - null
-        results:
-          - field: guid
-            expr: $guid
-          - field: name
-            expr: $name
-          - field: guidProgram
-            expr: $programs.guid
-          - field: nameProgram
-            expr:
-              concat:
-                - $programs.name
-                - ' - '
-                - $programs.code
-          - field: guidProj
-            expr: $programs.project.guid
-          - field: nameProj
-            expr: $programs.project.name
-      - className: briefcase
-        filter:
-          and:
-            - ne:
-              - $archive
-              - true
-            - nempty:
-              - $projects.events
-        results:
-          - field: guid
-            expr: $guid
-          - field: name
-            expr: $name
-          - field: guidProj
-            expr: $projects.guid
-          - field: nameProj
-            expr: $projects.name
-  - name: programGosProgramProject
-    caption: >-
-      Данные о госпрограмме и их проектах в программах
-    index:
-      - guid
-    load:
-      - className: programGos
-        filter:
-          - and:
-            - ne:
-              - $archive
-              - true
-            - ne:
-              - $program.guid
-              - null
-        results:
-          - field: guid
-            expr: $id
-          - field: name
-            expr: $name
-          - field: guidProgram
-            expr: $program.guid
-          - field: nameProgram
-            expr:
-              concat:
-                - $program.name
-                - ' - '
-                - $program.code
-          - field: guidProj
-            expr: $program.project.guid
-          - field: nameProj
-            expr: $program.project.name
-      - className: programGos
-        filter:
-          - nempty:
-              - $project.events
-        results:
-          - field: guid
-            expr: $id
-          - field: name
-            expr: $name
-          - field: guidProj
-            expr: $project.guid
-          - field: nameProj
-            expr: $project.name
   - name: opportunityProject
     # Выгружаем из класса opportunity
     caption: >-
@@ -518,26 +346,6 @@ sources:
         results:
           - field: projectCode
             expr: $basicObjPerform.project_code
-          # - field: part
-          #   expr:
-          #     case:
-          #       - eq:
-          #         - $basicObjPerform.curator
-          #         - $employee
-          #       - 'Куратор проекта'
-          #       - eq:
-          #         - $basicObjPerform.head
-          #         - $employee
-          #       - 'Руководитель проекта'
-          #       - eq:
-          #         - $basicObjPerform.administrator
-          #         - $employee
-          #       - 'Администратор проекта'
-          #       - eq:
-          #         - $basicObjPerform.owner
-          #         - $employee
-          #       - 'Оператор проекта'
-          #       - 'Исполнитель или соисполнитель'
           - field: guid
             expr: $guid
           - field: mark
@@ -545,10 +353,6 @@ sources:
           - field: evalType
             expr:
               case:
-                - eq:
-                  - $evalType
-                  - 'curator'
-                - 'Предлагаемая куратором проекта'
                 - eq:
                   - $evalType
                   - 'expert'
@@ -672,16 +476,6 @@ sources:
               ifNull:
                 - $fact
                 - $result.fact
-          - field: curatorProj
-            expr:
-              concat:
-                - $curator.person.surname
-                - ' '
-                - $curator.person.name
-                - ' '
-                - $curator.person.patronymic
-                - ', '
-                - $curator.position
           - field: headProj
             expr:
               concat:
@@ -692,18 +486,6 @@ sources:
                 - $head.person.patronymic
                 - ', '
                 - $head.position
-          - field: administratorProj
-            expr:
-              concat:
-                - $administrator.person.surname
-                - ' '
-                - $administrator.person.name
-                - ' '
-                - $administrator.person.patronymic
-                - ', '
-                - $administrator.position
-          - field: stakeholdersProj
-            expr: $stakeholdersImplementation.organization.name
           - field: ownOrgEvent
             expr: $ownOrg.name
           - field: ownerEvent
@@ -716,45 +498,7 @@ sources:
                 - $owner.person.patronymic
                 - ', '
                 - $owner.position
-      - className: projDepart
-        filter:
-          ne:
-            - $archive
-            - true
-        results:
-          - field: guid
-            expr: $guid
-          - field: archive
-            expr: $archive
-          - field: projectCode
-            expr: $project_code
-          - field: projectName
-            expr:
-              concat:
-                - $name
-                - ' - '
-                - $project_code
-          - field: name
-            expr: $name
-          - field: ownerObj
-            expr: $owner.organization.name
-          - field: ownOrgEvent
-            expr: $ownOrg.name
-          - field: dateStartObj
-            expr: $datePlannedStart
-          - field: dateEndObj
-            expr: $datePlannedEnd
-          - field: planObj
-            expr:
-              ifNull:
-                - $plan
-                - '-'
-          - field: factObj
-            expr:
-              ifNull:
-                - $fact
-                - $result.fact
-      - className: eventBasic
+       - className: event
         filter:
           ne:
             - $archive
@@ -884,16 +628,6 @@ sources:
             expr: $datePlannedStart
           - field: datePlannedEnd
             expr: $datePlannedEnd
-          - field: curatorProj # куратор
-            expr:
-              concat:
-                - $curator.person.surname
-                - ' '
-                - $curator.person.name
-                - ' '
-                - $curator.person.patronymic
-                - ', '
-                - $curator.position
           - field: headProj # руководитель
             expr:
               concat:
@@ -904,18 +638,6 @@ sources:
                 - $head.person.patronymic
                 - ', '
                 - $head.position
-          - field: administratorProj # админ
-            expr:
-              concat:
-                - $administrator.person.surname
-                - ' '
-                - $administrator.person.name
-                - ' '
-                - $administrator.person.patronymic
-                - ', '
-                - $administrator.position
-          - field: stakeholdersProj  # участники
-            expr: $stakeholdersImplementation.organization.name
           - field: ownOrgEvent  # ответств ведомство
             expr: $ownOrg.name
           - field: ownerEvent # ответственный
@@ -928,33 +650,6 @@ sources:
                 - $owner.person.patronymic
                 - ', '
                 - $owner.position
-  - name: objectBasicIndicator
-    caption: Данные о показателях объектов
-    index:
-      - guid
-      - objectBasicId
-    load:
-      - className: objectBasic
-        filter:
-          nempty:
-            - $indicatorBasic.id
-        results:
-          - field: guid
-            expr: $guid
-          # - field: projectCode
-          #   expr: $project_code
-          # - field: name
-          #   expr: $name
-          - field: indicatorId
-            expr: $indicatorBasic.id
-          - field: indicatorName
-            expr: $indicatorBasic.name
-          - field: indicatorMeasureUnit
-            expr: $indicatorBasic.measureUnit.shortName
-          - field: indicatorDateStart
-            expr: $indicatorBasic.dateStart
-          - field: indicatorDateEnd
-            expr: $indicatorBasic.dateEnd
   - name: eventBasicIndicator
     # здесь возможно выгружать только общие данные (по всем классам показателей)
     caption: Данные о показателях мероприятия
@@ -963,15 +658,13 @@ sources:
       - projectCode
       - objectBasicId
     load:
-      - className: eventBasic
+      - className: event
         filter:
           nempty:
             - $indicatorBasic.id
         results:
           - field: guid
             expr: $guid
-          - field: objectBasicId
-            expr: $objectBasic.guid
           - field: projectCode
             expr: $project_code
           - field: name
@@ -1227,55 +920,6 @@ sources:
                 - $progressInput
           - field: nonfulfillment
             expr: $nonfulfillment
-      - className: projDepart
-        filter:
-          nempty:
-            - $indicatorBasic.id
-        results:
-          - field: guid
-            expr: $guid
-          - field: projectCode
-            expr: $project_code
-          - field: name
-            expr:
-              concat:
-                - $name
-                - ' - '
-                - $project_code
-          - field: indicatorId
-            expr: $indicatorBasic.id
-          - field: indicatorName
-            expr: $indicatorBasic.name
-          - field: indicatorMeasureUnit
-            expr: $indicatorBasic.measureUnit.shortName
-          - field: indicatorDateStart
-            expr: $indicatorBasic.dateStart
-          - field: indicatorDateEnd
-            expr: $indicatorBasic.dateEnd
-          - field: ownerObj
-            expr: $basicObjsOwnOrg
-          - field: datePlannedEnd
-            expr: $datePlannedEnd
-          - field: planEvent
-            expr:
-              ifNull:
-                - $plan
-                - '-'
-          - field: factEvent
-            expr:
-              ifNull:
-                - $fact
-                - $result.fact
-          - field: progress
-            expr:
-              if:
-                - gt:
-                  - $countObjs
-                  - 0
-                - $progress
-                - $progressInput
-          - field: nonfulfillment
-            expr: $nonfulfillment
       - source: projectObjectBasicIndicator
         joins:
           - table: basicProject
@@ -1338,16 +982,6 @@ sources:
                 - $project_code
           - field: ownerObj
             expr: $owner.organization.name
-          - field: curatorProj
-            expr:
-              concat:
-                - $curator.person.surname
-                - ' '
-                - $curator.person.name
-                - ' '
-                - $curator.person.patronymic
-                - ', '
-                - $curator.position
           - field: headProj
             expr:
               concat:
@@ -1358,18 +992,6 @@ sources:
                 - $head.person.patronymic
                 - ', '
                 - $head.position
-          - field: administratorProj
-            expr:
-              concat:
-                - $administrator.person.surname
-                - ' '
-                - $administrator.person.name
-                - ' '
-                - $administrator.person.patronymic
-                - ', '
-                - $administrator.position
-          - field: stakeholdersProj
-            expr: $stakeholdersImplementation.organization.name
           - field: ownOrgEvent
             expr: $ownOrg.name
           - field: ownerEvent
@@ -1398,107 +1020,7 @@ sources:
               ifNull:
                 - $fact
                 - $result.fact
-      - className: eventBlock
-        filter:
-          ne:
-            - $archive
-            - true
-        results:
-          - field: archive
-            expr: $archive
-          - field: guidObj
-            expr: $guid
-          - field: guidObj1
-            expr: $basicObj.guid
-          - field: guidObj2
-            expr: $basicObj.basicObj.guid
-          - field: guidObj3
-            expr: $basicObj.basicObj.basicObj.guid
-          - field: numObj
-            expr: $numEvent
-          - field: nameObjList
-            expr:
-              if:
-                - $basicObj.basicObj.basicObj.guid
-                - concat:
-                  - '   3 '
-                  - $name
-                - if:
-                  - $basicObj.basicObj.guid
-                  - concat:
-                    - '  2 '
-                    - $name
-                  - if:
-                    - $basicObj.guid
-                    - concat:
-                      - ' 1 '
-                      - $name
-                    - $name
-          - field: nameObjIndex
-            expr:
-              if:
-                - $basicObj.basicObj.basicObj.guid
-                - '3'
-                - if:
-                  - $basicObj.basicObj.guid
-                  - '2'
-                  - if:
-                    - $basicObj.guid
-                    - '1'
-                    - '0'
-          - field: idActive
-            expr:
-              if:
-                - eq:
-                  - $basicObj.basicObj.guid
-                  - null
-                - null
-                - $basicObj.guid
-          - field: guidProj
-            expr:
-              if:
-                - $basicObj.basicObj.basicObj.basicObj.guid
-                - null
-                - ifNull:
-                  - $basicObj.basicObj.basicObj.guid
-                  - ifNull:
-                    - $basicObj.basicObj.guid
-                    - ifNull:
-                      - $basicObj.guid
-                      - null
-          - field: nameObj
-            expr: $name
-          - field: ownerObj
-            expr: $owner.organization.name
-          - field: ownOrgEvent
-            expr: $ownOrg.name
-          - field: ownerEvent
-            expr:
-              concat:
-                - $owner.person.surname
-                - ' '
-                - $owner.person.name
-                - ' '
-                - $owner.person.patronymic
-                - ', '
-                - $owner.position
-          - field: dateStartObj
-            expr: $datePlannedStart
-          - field: dateEndObj
-            expr: $datePlannedEnd
-          - field: planObj
-            expr:
-              ifNull:
-                - $plan
-                - '-'
-          - field: factObj
-            expr:
-              ifNull:
-                - $fact
-                - $result.fact
-    index:
-      - guidObj
-      - guidProj
+      
   - name: basicBudget
     # Выгружаем из класса budget все
     # объекты
@@ -3196,45 +2718,6 @@ sources:
             expr:
               sum:
                 - $indicatorBudget.indicatorValueBasic.desiredValue
-  - name: finProgramLimSource
-    caption: >-
-      Данные об ограничениях программ
-    index:
-      - guid
-    load:
-      - className: program
-        filter:
-          ne:
-            - $archive
-            - true
-        results:
-          - field: guid
-            expr: $guid
-          - field: name
-            expr:
-              concat:
-                - $name
-                - ' - '
-                - $code
-          - field: year
-            expr:
-              year:
-                - dateAdd:
-                  - $indicatorLimBudget.indicatorValueBasic.dateStart
-                  - 10
-                  - h
-          - field: fact
-            expr:
-              sum:
-                - $indicatorLimBudget.indicatorValueBasic.value
-          - field: plan
-            expr:
-              sum:
-                - $indicatorLimBudget.indicatorValueBasic.plannedValue
-          - field: desired
-            expr:
-              sum:
-                - $indicatorLimBudget.indicatorValueBasic.desiredValue
   - name: finProgramSource
     caption: >-
       Данные о бюджете программ
@@ -3447,7 +2930,7 @@ sources:
   - name: eventAll
     caption: Мероприятия
     load:
-      - className: eventBasic
+      - className: event
         filter:
           ne:
             - $archive

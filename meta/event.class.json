@@ -7,7 +7,7 @@
   "name": "event",
   "version": "31",
   "caption": "Мероприятие",
-  "ancestor": "eventBlock",
+  "ancestor": "basicObj",
   "container": null,
   "creationTracker": "",
   "changeTracker": "",
@@ -220,98 +220,6 @@
     },
     {
       "orderNumber": 35,
-      "name": "typeEvent",
-      "caption": "Тип мероприятия",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": true,
-      "unique": false,
-      "autoassigned": true,
-      "hint": null,
-      "defaultValue": {
-        "if": [
-          {
-            "in": [
-              "$basicObj.__class",
-              [
-                "project@pm-gov-ru",
-                "event@pm-gov-ru",
-                "eventBlock@pm-gov-ru",
-                "eventControl@pm-gov-ru",
-                "eventObject@pm-gov-ru",
-                "eventObjectBasic@pm-gov-ru",
-                "eventOnly@pm-gov-ru",
-                "eventOnlyAIP@pm-gov-ru",
-                "eventRisk@pm-gov-ru"
-              ]
-            ]
-          },
-          "Проектное",
-          {
-            "if": [
-              {
-                "eq": [
-                  "$basicObj.__class",
-                  "program@pm-gov-ru"
-                ]
-              },
-              "Мероприятие программы",
-              {
-                "if": [
-                  {
-                    "eq": [
-                      "$basicObj.__class",
-                      "proposal@pm-gov-ru"
-                    ]
-                  },
-                  "Мероприятие проектного предложения",
-                  {
-                    "if": [
-                      {
-                        "nempty": [
-                          "$briefcase"
-                        ]
-                      },
-                      "Мероприятие портфеля",
-                      {
-                        "if": [
-                          {
-                            "nempty": [
-                              "$programGos"
-                            ]
-                          },
-                          "Мероприятие гос. программы",
-                          "Не проектное"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 35,
       "name": "vidEvent",
       "caption": "Вид мероприятия",
       "type": 0,
@@ -330,7 +238,7 @@
           {
             "eq": [
               "$__class",
-              "event@pm-gov-ru"
+              "event@pm-company-ru"
             ]
           },
           "Мероприятие",
@@ -339,77 +247,11 @@
               {
                 "eq": [
                   "$__class",
-                  "eventBlock@pm-gov-ru"
+                  "eventControl@pm-company-ru"
                 ]
               },
-              "Блок мероприятий",
-              {
-                "if": [
-                  {
-                    "eq": [
-                      "$__class",
-                      "eventControl@pm-gov-ru"
-                    ]
-                  },
-                  "Контрольная точка",
-                  {
-                    "if": [
-                      {
-                        "eq": [
-                          "$__class",
-                          "eventObject@pm-gov-ru"
-                        ]
-                      },
-                      "Мероприятие по объекту включенного в АИП",
-                      {
-                        "if": [
-                          {
-                            "eq": [
-                              "$__class",
-                              "eventObjectBasic@pm-gov-ru"
-                            ]
-                          },
-                          "Мероприятие по объекту включенного в АИП",
-                          {
-                            "if": [
-                              {
-                                "eq": [
-                                  "$__class",
-                                  "eventOnly@pm-gov-ru"
-                                ]
-                              },
-                              "Этап/стадия объекта",
-                              {
-                                "if": [
-                                  {
-                                    "eq": [
-                                      "$__class",
-                                      "eventOnlyAIP@pm-gov-ru"
-                                    ]
-                                  },
-                                  "Этап/стадия объекта",
-                                  {
-                                    "if": [
-                                      {
-                                        "eq": [
-                                          "$__class",
-                                          "eventRisk@pm-gov-ru"
-                                        ]
-                                      },
-                                      "Мероприятие риска/возможности",
-                                      " "
-                                    ]
-                                  }
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
+              "Контрольная точка",
+              " "                      
             ]
           }
         ]
@@ -520,35 +362,6 @@
       "hint": null,
       "defaultValue": null,
       "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 200,
-      "name": "curator",
-      "caption": "Куратор мероприятий",
-      "type": 13,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "employee",
       "itemsClass": "",
       "backRef": "",
       "backColl": "",
@@ -729,7 +542,7 @@
       "hint": null,
       "defaultValue": null,
       "refClass": "",
-      "itemsClass": "eventBasic",
+      "itemsClass": "event",
       "allowedSubclasses": [
         "event",
         "eventControl",
@@ -957,35 +770,6 @@
       "formula": null
     },
     {
-      "orderNumber": 760,
-      "name": "resultEvent",
-      "caption": "Результаты",
-      "type": 14,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "resultEvent",
-      "backRef": "eventBasic",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
       "orderNumber": 100,
       "name": "dateCreateResult",
       "caption": "Дата создания последнего отчета",
@@ -1061,15 +845,10 @@
       "hint": null,
       "defaultValue": null,
       "refClass": "",
-      "itemsClass": "eventBasic",
+      "itemsClass": "event",
       "allowedSubclasses": [
-        "eventBlock",
         "event",
-        "eventControl",
-        "eventObjectBasic",
-        "eventObject",
-        "eventOnly",
-        "eventOnlyAIP"
+        "eventControl"
       ],
       "backRef": "",
       "backColl": "blocks",
@@ -1119,15 +898,10 @@
       "hint": null,
       "defaultValue": null,
       "refClass": "",
-      "itemsClass": "eventBasic",
+      "itemsClass": "event",
       "allowedSubclasses": [
-        "eventBlock",
         "event",
-        "eventControl",
-        "eventObjectBasic",
-        "eventObject",
-        "eventOnly",
-        "eventOnlyAIP"
+        "eventControl"
       ],
       "backRef": "",
       "backColl": "",
@@ -1411,35 +1185,6 @@
         "parameters": [],
         "hq": ""
       },
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 200,
-      "name": "curator",
-      "caption": "Куратор мероприятия",
-      "type": 13,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "employee",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
       "indexSearch": false,
       "eagerLoading": false,
       "formula": null

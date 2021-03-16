@@ -133,32 +133,6 @@
           "selConditions": [],
           "selSorting": []
         },
-        {
-          "caption": "Объект показателя",
-          "type": 5,
-          "property": "objectBasic",
-          "size": 2,
-          "maskName": null,
-          "mask": null,
-          "mode": 1,
-          "fields": [],
-          "columns": [],
-          "actions": null,
-          "commands": null,
-          "orderNumber": 60,
-          "required": false,
-          "visibility": null,
-          "enablement": null,
-          "obligation": null,
-          "readonly": false,
-          "selectionPaginated": true,
-          "validators": null,
-          "hint": "",
-          "historyDisplayMode": 0,
-          "tags": null,
-          "selConditions": [],
-          "selSorting": []
-        },
 
 
         {
@@ -982,7 +956,6 @@
           "historyDisplayMode": 0,
           "tags": null,
           "options": {
-            "template": "file-collection",
             "map": {
               "file": "file",
               "fileName": "name"
@@ -1221,17 +1194,7 @@
           "validators": null,
           "hint": "",
           "historyDisplayMode": 0,
-          "tags": null,
-          "options": {
-            "template": "comments",
-            "comments": {
-              "textProperty": "descript",
-              "userProperty": "owner",
-              "parentProperty": "answlink",
-              "photoProperty": "owner_ref.foto.link",
-              "dateProperty": "date"
-            }
-          }
+          "tags": null
         }
       ],
       "shortFields": []

@@ -1,9 +1,0 @@
-{
-  "code": "object_cardPivot",
-  "caption": "Сводный по мероприятиям",
-  "parent": "object",
-  "mine": "pm-company-ru@eventsBase",
-  "report": "cardPivot",
-  "namespace": "pm-company-ru",
-  "order": 4
-}

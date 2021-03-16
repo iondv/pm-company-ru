@@ -51,8 +51,7 @@
                 "validators": null,
                 "hint": null,
                 "historyDisplayMode": 0,
-                "tags": null,
-                "options": {}
+                "tags": null
             },
             {
                 "caption": "Дата платежа",

@@ -51,8 +51,7 @@
                 "validators": null,
                 "hint": null,
                 "historyDisplayMode": 0,
-                "tags": null,
-                "options": {}
+                "tags": null
             },
             {
                 "caption": "Наименование этапа",
@@ -250,10 +249,7 @@
                 "historyDisplayMode": 0,
                 "tags": [
                   "share"
-                ],
-                "options": {
-                  "template": "fileshare-list"
-                }
+                ]
             }
         ],
         "shortFields": []

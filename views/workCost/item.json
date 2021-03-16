@@ -102,10 +102,7 @@
           "historyDisplayMode": 0,
           "tags": [
             "share"
-          ],
-          "options": {
-            "template": "fileshare"
-          }
+          ]
         },
         {
           "caption": "Архив",

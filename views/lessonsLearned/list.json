@@ -111,7 +111,6 @@
     "useEditModels": true,
     "version": null,
     "overrideMode": 1,
-    "options": {},
     "commands": [
       {
         "id": "CREATE",

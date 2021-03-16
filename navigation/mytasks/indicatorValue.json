@@ -1,16 +1,50 @@
 {
-  "code": "indicatorValue",
-  "orderNumber": 40,
-  "type": 0,
-  "title": "",
-  "caption": "Значения показателей",
-  "classname": null,
-  "container": null,
-  "collection": null,
-  "url": null,
-  "hint": null,
-  "conditions": [],
-  "sorting": [],
-  "pathChains": [],
-  "metaVersion": "2.0.61.18033"
-}
+    "code": "indicatorValue",
+    "orderNumber": 10,
+    "type": 1,
+    "title": "",
+    "caption": "Значения показателей",
+    "classname": "indicatorValueBasic",
+    "container": null,
+    "collection": null,
+    "url": null,
+    "hint": "Красным цветом выделены не утвержденные показатели, дата окончания которых меньше текущей даты ",
+    "conditions": [
+      {
+        "operation": 1,
+        "nestedConditions": [
+          {
+            "property": "indicatorBasic.ownerValue.person.user",
+            "operation": 0,
+            "value": [
+              "$$uid"
+            ],
+            "nestedConditions": []
+          },
+          {
+            "property": "indicatorBasic.ownerValue.id",
+            "operation": 9,
+            "value": [
+              "$substitution"
+            ]
+          }
+        ]
+      },
+      {
+        "property": "state",
+        "operation": 1,
+        "value": [
+          "app"
+        ],
+        "nestedConditions": []
+      },
+      {
+        "property": "indicatorStatus",
+        "operation": 1,
+        "value": ["archive"],
+        "nestedConditions": []
+      }
+    ],
+    "sorting": [],
+    "pathChains": []
+  }

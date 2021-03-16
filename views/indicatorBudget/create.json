@@ -79,8 +79,7 @@
           "historyDisplayMode": 0,
           "tags": null,
           "selConditions": [],
-          "selSorting": [],
-          "options": {}
+          "selSorting": []
         },
         {
           "caption": "Ответственный",

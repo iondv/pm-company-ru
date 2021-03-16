@@ -24,140 +24,6 @@ let toggleParams = {};
      data-layout="<%= layout %>">
   <ul>
 
-    <li data-sizey="1" data-sizex="1" data-col="1" data-row="2">
-      <%- partial(task.view, {
-        widget: task,
-        params: {
-          id: 'reviewProposal',
-          title: 'Проектные предложения на утверждении',
-        },
-        redirect: 'registry/pm-company-ru@myproposal.review',
-        url: 'registry/api/proposal@pm-company-ru',
-        urlData: {
-          node: 'pm-company-ru@myproposal.review',
-          filter: [
-            {
-              "property": null,
-              "operation": 1,
-              "value": null,
-              "nestedConditions": [
-            {
-              "property": null,
-              "operation": 0,
-              "value": null,
-              "nestedConditions": [
-              {
-                "property": "state",
-                "operation": 0,
-                "value": [
-                "new"
-                ],
-                "nestedConditions": []
-              },
-              {
-                "property": "owner.person.user",
-                "operation": 0,
-                "value": [
-                "$$uid"
-                ],
-                "nestedConditions": []
-              }
-              ]
-            },
-            {
-              "property": null,
-              "operation": 0,
-              "value": null,
-              "nestedConditions": [
-              {
-                "property": "state",
-                "operation": 0,
-                "value": [
-                "head"
-                ],
-                "nestedConditions": []
-              },
-              {
-                "property": "head.person.user",
-                "operation": 0,
-                "value": [
-                "$$uid"
-                ],
-                "nestedConditions": []
-              }
-              ]
-            },
-            {
-              "property": null,
-              "operation": 0,
-              "value": null,
-              "nestedConditions": [
-              {
-                "property": "state",
-                "operation": 0,
-                "value": [
-                "admin"
-                ],
-                "nestedConditions": []
-              },
-              {
-                "property": "administrator.person.user",
-                "operation": 0,
-                "value": [
-                "$$uid"
-                ],
-                "nestedConditions": []
-              }
-              ]
-            },
-            {
-              "property": null,
-              "operation": 0,
-              "value": null,
-              "nestedConditions": [
-              {
-                "property": "state",
-                "operation": 0,
-                "value": [
-                "curator"
-                ],
-                "nestedConditions": []
-              },
-              {
-                "property": "curator.person.user",
-                "operation": 0,
-                "value": [
-                "$$uid"
-                ],
-                "nestedConditions": []
-              }
-              ]
-            }
-              ]
-            },
-            {
-              "property": "state",
-              "operation": 1,
-              "value": ["accept"],
-              "nestedConditions": []
-            },
-            {
-              "property": "state",
-              "operation": 1,
-              "value": ["cancel"],
-              "nestedConditions": []
-            },
-            {
-              "property": "archive",
-              "operation": 1,
-              "value": [true],
-              "nestedConditions": []
-            }
-          ]
-        }
-      })%>
-    </li>
-
     <li data-sizey="1" data-sizex="1" data-col="2" data-row="1">
         <%- partial(task.view, {
           widget: task,
@@ -166,7 +32,7 @@ let toggleParams = {};
             title: 'Мои мероприятия',
           },
           redirect: 'registry/pm-company-ru@myprojectevent.myevent',
-          url: 'registry/api/eventBasic@pm-company-ru',
+          url: 'registry/api/event@pm-company-ru',
           urlData: {
             node: 'pm-company-ru@myprojectevent.myevent',
             filter: [{
@@ -174,14 +40,6 @@ let toggleParams = {};
               "operation": 1,
               "value": null,
               "nestedConditions": [
-                {
-                  "property": "curator.person.user",
-                  "operation": 0,
-                  "value": [
-                    "$$uid"
-                  ],
-                  "nestedConditions": []
-                },
                 {
                   "property": "head.person.user",
                   "operation": 0,
@@ -237,23 +95,7 @@ let toggleParams = {};
               "value": null,
               "nestedConditions": [
                 {
-                  "property": "curator.person.user",
-                  "operation": 0,
-                  "value": [
-                    "$$uid"
-                  ],
-                  "nestedConditions": []
-                },
-                {
                   "property": "head.person.user",
-                  "operation": 0,
-                  "value": [
-                    "$$uid"
-                  ],
-                  "nestedConditions": []
-                },
-                {
-                  "property": "administrator.person.user",
                   "operation": 0,
                   "value": [
                     "$$uid"
@@ -279,113 +121,6 @@ let toggleParams = {};
               "nestedConditions": []
             }]
           }
-        })%>
-    </li>
-
-    <li data-sizey="1" data-sizex="1" data-col="3" data-row="1">
-        <%- partial(task.view, {
-          widget: task,
-          params: {
-            id: 'departProject',
-            title: 'Ведомственные проекты',
-          },
-          redirect: 'registry/pm-company-ru@myProjectDepart',
-          url: 'registry/api/projDepart@pm-company-ru',
-          urlData: {
-            node: 'pm-company-ru@myProjectDepart',
-            filter: [{
-              property: 'ownOrg.employee.person.user',
-              operation: 0,
-              value: ['$$uid']
-            },{
-              property: 'archive',
-              operation: 1,
-              value: [
-                true
-              ]
-            }]
-          }
-        })%>
-    </li>
-
-    <li data-sizey="1" data-sizex="1" data-col="3" data-row="2">
-        <%- partial(summary.view, {
-          widget: summary,
-          params: {
-            id: 'summary',
-            title: 'Сводные данные'
-          },
-          sources: [{
-            caption: 'Ведомственные проекты',
-            colorIndex: 1,
-            url: 'registry/api/projDepart@pm-company-ru',
-            urlData: {
-              node: 'pm-company-ru@myProjectDepart',
-              filter: [{
-                property: 'ownOrg.employee.person.user',
-                operation: 0,
-                value: ['$$uid']
-              },{
-                property: 'archive',
-                operation: 1,
-                value: [
-                  true
-                ]
-              }]
-            }
-          },{
-            caption: 'Ответственность по проектам',
-            colorIndex: 3,
-            url: 'registry/api/project@pm-company-ru',
-            urlData: {
-              node: 'pm-company-ru@myprojectevent.responsibility',
-              filter: [{
-                "property": 'archive',
-                "operation": 1,
-                "value": [
-                  true
-                ]
-              }, {
-                "property": null,
-                "operation": 1,
-                "value": null,
-                "nestedConditions": [
-                  {
-                    "property": "curator.person.user",
-                    "operation": 0,
-                    "value": [
-                      "$$uid"
-                    ],
-                    "nestedConditions": []
-                  },
-                  {
-                    "property": "head.person.user",
-                    "operation": 0,
-                    "value": [
-                      "$$uid"
-                    ],
-                    "nestedConditions": []
-                  },
-                  {
-                    "property": "administrator.person.user",
-                    "operation": 0,
-                    "value": [
-                      "$$uid"
-                    ],
-                    "nestedConditions": []
-                  },
-                  {
-                    "property": "owner.person.user",
-                    "operation": 0,
-                    "value": [
-                      "$$uid"
-                    ],
-                    "nestedConditions": []
-                  }
-                ]
-              }]
-            }
-          }]
         })%>
     </li>
 

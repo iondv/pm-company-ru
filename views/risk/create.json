@@ -121,7 +121,6 @@
                   "historyDisplayMode": 0,
                   "tags": null,
                   "options": {
-                    "template": "attrs/risk/select_rhomb",
                     "cssClasses": ["top-label"]
                   }
                 }
@@ -177,7 +176,6 @@
                   "historyDisplayMode": 0,
                   "tags": null,
                   "options": {
-                    "template": "attrs/risk/select_rhomb",
                     "cssClasses": ["top-label"]
                   }
                 }

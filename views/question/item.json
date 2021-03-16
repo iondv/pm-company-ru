@@ -262,14 +262,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 9,

@@ -515,14 +515,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 80,
@@ -650,14 +650,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 90,
@@ -787,14 +787,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 100,
@@ -922,14 +922,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 105,
@@ -1057,14 +1057,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 110,
@@ -1192,14 +1192,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 115,
@@ -1349,14 +1349,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 120,
@@ -1516,14 +1516,14 @@
             "isBulk": false
           },
           {
-            "id": "DELETE",
-            "caption": "Удалить",
-            "visibilityCondition": null,
-            "enableCondition": null,
-            "needSelectedItem": true,
-            "signBefore": false,
-            "signAfter": false,
-            "isBulk": false
+            "enableCondition": null, 
+            "needSelectedItem": true, 
+            "visibilityCondition": null, 
+            "caption": "Убрать", 
+            "signBefore": false, 
+            "isBulk": false, 
+            "id": "REMOVE", 
+            "signAfter": false
           }
         ],
         "orderNumber": 130,

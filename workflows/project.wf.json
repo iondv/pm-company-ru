@@ -200,26 +200,6 @@
             "planningVPO"
           ],
           "nestedConditions": []
-        },
-        {
-          "operation": 1,
-          "nestedConditions": [
-            {
-              "property": "ownOrg.vedomstveniyPO.person.user",
-              "operation": 0,
-              "value": [
-                "$$uid"
-              ],
-              "nestedConditions": []
-            },
-            {
-              "property": "ownOrg.vedomstveniyPO.id",
-              "operation": 9,
-              "value": [
-                "$substitution"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -314,51 +294,6 @@
         }
       ],
       "conditions": [
-        {
-          "property": "status",
-          "operation": 0,
-          "value": [
-            "planningAdmin"
-          ],
-          "nestedConditions": []
-        }
-      ]
-    },
-    {
-      "name": "adminInHead",
-      "caption": "Утвердить у руководителя",
-      "startState": "planningAdmin",
-      "finishState": "planningHead",
-      "signBefore": false,
-      "signAfter": false,
-      "roles": [],
-      "assignments": [
-        {
-          "key": "status",
-          "value": "planningHead"
-        }
-      ],
-      "conditions": [
-        {
-          "operation": 1,
-          "nestedConditions": [
-            {
-              "property": "administrator.person.user",
-              "operation": 0,
-              "value": [
-                "$$uid"
-              ],
-              "nestedConditions": []
-            },
-            {
-              "property": "administrator.id",
-              "operation": 9,
-              "value": [
-                "$substitution"
-              ]
-            }
-          ]
-        },
         {
           "property": "status",
           "operation": 0,
@@ -465,57 +400,6 @@
       ]
     },
     {
-      "name": "curatorInPO",
-      "caption": "Утвердить в проектном офисе",
-      "startState": "planningCurator",
-      "finishState": "planningPO",
-      "signBefore": false,
-      "signAfter": false,
-      "roles": [],
-      "assignments": [
-        {
-          "key": "status",
-          "value": "planningPO"
-        }
-      ],
-      "conditions": [
-        {
-          "operation": 1,
-          "nestedConditions": [
-            {
-              "property": "curator.person.user",
-              "operation": 0,
-              "value": [
-                "$$uid"
-              ],
-              "nestedConditions": []
-            },
-            {
-              "property": "curator.id",
-              "operation": 9,
-              "value": [
-                "$substitution"
-              ]
-            }
-          ]
-        },
-        {
-          "property": "interdepartmental",
-          "operation": 0,
-          "value": [true],
-          "nestedConditions": []
-        },
-        {
-          "property": "status",
-          "operation": 0,
-          "value": [
-            "planningCurator"
-          ],
-          "nestedConditions": []
-        }
-      ]
-    },
-    {
       "name": "planningPOInRework",
       "caption": "Вернуть исполнителю",
       "startState": "planningPO",
@@ -598,108 +482,6 @@
           "value": [
             "planningPO"
           ],
-          "nestedConditions": []
-        }
-      ]
-    },
-    {
-      "name": "curatorinReport",
-      "caption": "Промежуточный отчет",
-      "startState": "planningCurator",
-      "finishState": "create",
-      "signBefore": false,
-      "signAfter": false,
-      "roles": [],
-      "assignments": [
-        {
-          "key": "status",
-          "value": "create"
-        }
-      ],
-      "conditions": [
-        {
-          "operation": 1,
-          "nestedConditions": [
-            {
-              "property": "curator.person.user",
-              "operation": 0,
-              "value": [
-                "$$uid"
-              ],
-              "nestedConditions": []
-            },
-            {
-              "property": "curator.id",
-              "operation": 9,
-              "value": [
-                "$substitution"
-              ]
-            }
-          ]
-        },
-        {
-          "property": "status",
-          "operation": 0,
-          "value": [
-            "planningCurator"
-          ],
-          "nestedConditions": []
-        },
-        {
-          "property": "interdepartmental",
-          "operation": 1,
-          "value": [true],
-          "nestedConditions": []
-        }
-      ]
-    },
-    {
-      "name": "curatorinAccepted",
-      "caption": "Утвердить",
-      "startState": "planningCurator",
-      "finishState": "inaccepted",
-      "signBefore": false,
-      "signAfter": false,
-      "roles": [],
-      "assignments": [
-        {
-          "key": "status",
-          "value": "inaccepted"
-        }
-      ],
-      "conditions": [
-        {
-          "operation": 1,
-          "nestedConditions": [
-            {
-              "property": "curator.person.user",
-              "operation": 0,
-              "value": [
-                "$$uid"
-              ],
-              "nestedConditions": []
-            },
-            {
-              "property": "curator.id",
-              "operation": 9,
-              "value": [
-                "$substitution"
-              ]
-            }
-          ]
-        },
-        {
-          "property": "status",
-          "operation": 0,
-          "value": [
-            "planningCurator"
-          ],
-          "nestedConditions": []
-        },
-        {
-          "property": "interdepartmental",
-          "operation": 1,
-          "value": [true],
           "nestedConditions": []
         }
       ]

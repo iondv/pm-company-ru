@@ -297,36 +297,12 @@
         "type": "SIMPLE",
         "list": [
           {
-            "key": "crtInd",
-            "value": "Формирование показателей"
-          },
-          {
             "key": "new",
             "value": "Планирование"
           },
           {
             "key": "work",
             "value": "В работе"
-          },
-          {
-            "key": "result",
-            "value": "Создание отчета"
-          },
-          {
-            "key": "planningAdmin",
-            "value": "Утверждение администратором"
-          },
-          {
-            "key": "planningHead",
-            "value": "Утверждение руководителем"
-          },
-          {
-            "key": "planningCurator",
-            "value": "Утверждение куратором"
-          },
-          {
-            "key": "planningPO",
-            "value": "Утверждение проектным офисом"
           },
           {
             "key": "inaccepted",
@@ -373,113 +349,6 @@
       "indexSearch": false,
       "eagerLoading": false,
       "formula": null
-    },
-    {
-      "orderNumber": 210,
-      "name": "head",
-      "caption": "Руководитель мероприятий",
-      "type": 13,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "employee",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 440,
-      "name": "coexecEvent",
-      "caption": "Соисполнители мероприятия/контрольной точки",
-      "type": 14,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": true,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "employee",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [
-        {
-          "property": "organization_eval",
-          "mode": 0
-        }
-      ],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 445,
-      "name": "coexec_eval",
-      "caption": "",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": {
-        "concat": [
-          "$ownOrg.name",
-          "\n",
-          {
-            "merge": [
-              "$coexecEvent",
-              "person_org_eval",
-              null,
-              1,
-              "\n"
-            ]
-          }
-        ]
-      },
-      "cached": true
     },
     {
       "orderNumber": 410,
@@ -1129,83 +998,6 @@
       "hint": null,
       "defaultValue": null,
       "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 70,
-      "name": "levelOfControl",
-      "caption": "Уровень контроля",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": true,
-      "unique": false,
-      "autoassigned": false,
-      "hint": "С - Президиум Совета при Губернаторе  по приоритетным проектам и программам; РП - Руководитель регионального проекта; ПК - Проектный комитет по основному направлению социально-экономического развития.",
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": {
-        "type": "SIMPLE",
-        "list": [
-          {
-            "key": "boardPresidium",
-            "value": "С"
-          },
-          {
-            "key": "headProject",
-            "value": "РП"
-          },
-          {
-            "key": "projectCommittee",
-            "value": "ПК"
-          }
-        ],
-        "matrix": [],
-        "parameters": [],
-        "hq": ""
-      },
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
-      "orderNumber": 210,
-      "name": "head",
-      "caption": "Руководитель мероприятия",
-      "type": 13,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "employee",
       "itemsClass": "",
       "backRef": "",
       "backColl": "",

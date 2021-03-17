@@ -45,35 +45,6 @@
       "formula": null
     },
     {
-      "orderNumber": 30,
-      "name": "project_code",
-      "caption": "project_code [вычислимое, храним код проекта]",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": false,
-      "readonly": false,
-      "indexed": true,
-      "unique": false,
-      "autoassigned": true,
-      "hint": null,
-      "defaultValue": {"if": ["$basicObj", "$basicObj.project_code", "$code"]},
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": null
-    },
-    {
       "orderNumber": 502,
       "name": "basicObjsOwnOrg",
       "caption": "Основные исполнители и соисполнители проекта для ПФ",
@@ -121,44 +92,6 @@
               "\n"
             ]
           }
-        ]
-      },
-      "cached": true
-    },
-    {
-      "orderNumber": 503,
-      "name": "basicObjsHead",
-      "caption": "Руководители блоков мероприятий проекта для ПФ",
-      "type": 0,
-      "size": null,
-      "decimals": 0,
-      "allowedFileTypes": null,
-      "maxFileCount": 0,
-      "nullable": true,
-      "readonly": false,
-      "indexed": false,
-      "unique": false,
-      "autoassigned": false,
-      "hint": null,
-      "defaultValue": null,
-      "refClass": "",
-      "itemsClass": "",
-      "backRef": "",
-      "backColl": "",
-      "binding": "",
-      "semantic": null,
-      "selConditions": [],
-      "selSorting": [],
-      "selectionProvider": null,
-      "indexSearch": false,
-      "eagerLoading": false,
-      "formula": {
-        "merge": [
-          "$basicObjs",
-          "headevent",
-          null,
-          1,
-          "\n"
         ]
       },
       "cached": true

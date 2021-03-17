@@ -105,31 +105,6 @@
         "hint": null,
         "historyDisplayMode": 0,
         "tags": null
-      },
-      {
-        "caption": "Руководитель мероприятия",
-        "type": 5,
-        "property": "head",
-        "size": 2,
-        "maskName": null,
-        "mask": null,
-        "mode": null,
-        "fields": [],
-        "hierarchyAttributes": null,
-        "columns": [],
-        "actions": null,
-        "commands": null,
-        "orderNumber": 210,
-        "required": false,
-        "visibility": null,
-        "enablement": null,
-        "obligation": null,
-        "readonly": false,
-        "selectionPaginated": true,
-        "validators": null,
-        "hint": null,
-        "historyDisplayMode": 0,
-        "tags": null
       }
     ],
     "shortFields": []

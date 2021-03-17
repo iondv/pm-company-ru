@@ -532,7 +532,28 @@
           "visibility": null, 
           "selectionPaginated": true, 
           "obligation": null, 
-          "commands": null, 
+          "commands": [
+            {
+              "enableCondition": null, 
+              "needSelectedItem": false, 
+              "visibilityCondition": null, 
+              "caption": "Создать", 
+              "signBefore": false, 
+              "isBulk": false, 
+              "id": "CREATE", 
+              "signAfter": false
+            },
+            {
+              "enableCondition": null, 
+              "needSelectedItem": true, 
+              "visibilityCondition": null, 
+              "caption": "Править", 
+              "signBefore": false, 
+              "isBulk": false, 
+              "id": "EDIT", 
+              "signAfter": false
+            }
+          ], 
           "fields": [], 
           "required": false, 
           "mask": null, 
@@ -557,7 +578,28 @@
           "visibility": null, 
           "selectionPaginated": true, 
           "obligation": null, 
-          "commands": null, 
+          "commands": [
+            {
+              "enableCondition": null, 
+              "needSelectedItem": false, 
+              "visibilityCondition": null, 
+              "caption": "Создать", 
+              "signBefore": false, 
+              "isBulk": false, 
+              "id": "CREATE", 
+              "signAfter": false
+            },
+            {
+              "enableCondition": null, 
+              "needSelectedItem": true, 
+              "visibilityCondition": null, 
+              "caption": "Править", 
+              "signBefore": false, 
+              "isBulk": false, 
+              "id": "EDIT", 
+              "signAfter": false
+            }
+          ], 
           "fields": [], 
           "required": false, 
           "mask": null, 
@@ -1874,7 +1916,7 @@
           "required": false, 
           "mask": null, 
           "historyDisplayMode": 0, 
-          "caption": "Задачи регионального проекта", 
+          "caption": "Задачи", 
           "mode": 3, 
           "property": "problemReg"
         }, 
